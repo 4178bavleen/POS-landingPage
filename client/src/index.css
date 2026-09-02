@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #C52033;
+  --color-brand-primary-hover: #A61626;
+  --color-brand-primary-light: #F87181;
+  --color-brand-dark: #08090A;
+  --color-brand-card-dark: #101216;
+  --color-brand-border-dark: #1E232B;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  letter-spacing: -0.01em;
+}
+
+/* Subtle SaaS Background Patterns with #C52033 */
+.bg-grid-pattern {
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(197, 32, 51, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(197, 32, 51, 0.08) 1px, transparent 1px);
+}
+
+html:not(.dark) .bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(197, 32, 51, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(197, 32, 51, 0.07) 1px, transparent 1px);
+}
+
+.bg-radial-glow {
+  background: radial-gradient(circle 850px at 50% -120px, rgba(197, 32, 51, 0.22), transparent 70%);
+}
+
+html:not(.dark) .bg-radial-glow {
+  background: radial-gradient(circle 850px at 50% -120px, rgba(197, 32, 51, 0.12), transparent 70%);
+}
+
+/* Polished Cards */
+.saas-card {
+  background: #101216;
+  border: 1px solid #1E232B;
+  border-radius: 1rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.saas-card:hover {
+  border-color: rgba(197, 32, 51, 0.45);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.5), 0 0 24px -5px rgba(197, 32, 51, 0.2);
+}
+
+html:not(.dark) .saas-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+html:not(.dark) .saas-card:hover {
+  border-color: rgba(197, 32, 51, 0.45);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 0 18px -3px rgba(197, 32, 51, 0.15);
+}
+
+/* Glass Header */
+.header-glass {
+  background: rgba(8, 9, 10, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+html:not(.dark) .header-glass {
+  background: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Brand Accent Helpers */
+.brand-accent {
+  color: #C52033;
+}
+
+.brand-bg-accent {
+  background-color: #C52033;
+}
+
+.brand-bg-subtle {
+  background-color: rgba(197, 32, 51, 0.1);
+  color: #C52033;
+}
+
+.brand-border-subtle {
+  border-color: rgba(197, 32, 51, 0.25);
+}
+
+/* Gradients */
+.gradient-text {
+  background: linear-gradient(135deg, #FFFFFF 30%, #F87181 70%, #C52033 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+html:not(.dark) .gradient-text {
+  background: linear-gradient(135deg, #0F172A 20%, #C52033 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-badge {
+  background: linear-gradient(135deg, rgba(197, 32, 51, 0.15), rgba(197, 32, 51, 0.04));
+  border: 1px solid rgba(197, 32, 51, 0.3);
+}
+
+/* Buttons */
+.btn-primary-glow {
+  background: linear-gradient(180deg, #D4283C 0%, #C52033 60%, #A61626 100%);
+  color: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.25), 0 4px 16px rgba(197, 32, 51, 0.4);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary-glow:hover {
+  background: linear-gradient(180deg, #E03548 0%, #D4283C 60%, #C52033 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.35), 0 8px 26px rgba(197, 32, 51, 0.5);
+}
+
+.btn-secondary-glow {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #E2E8F0;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary-glow:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+}
+
+html:not(.dark) .btn-secondary-glow {
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  color: #1E293B;
+}
+
+html:not(.dark) .btn-secondary-glow:hover {
+  background: #F8FAFC;
+  border-color: #94A3B8;
+  color: #0F172A;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: #08090A; }
+html:not(.dark) ::-webkit-scrollbar-track { background: #F8FAFC; }
+::-webkit-scrollbar-thumb { background: #262B34; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #C52033; }
