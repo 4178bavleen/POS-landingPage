@@ -5,8 +5,8 @@ import posMockup from '../assets/pos-mockup.png'
 
 const highlights = [
   'Multi-Tenant SaaS Hierarchy',
-  'Real-Time Socket.IO KDS',
-  'Direct Zomato & Swiggy Webhooks',
+  'Real-Time KDS',
+  'Direct Zomato & Swiggy Integration',
   'Automated Silent Thermal Printing',
 ]
 
@@ -74,7 +74,7 @@ export default function Hero({ darkMode }) {
             <p className={`text-sm sm:text-base max-w-xl mb-7 font-normal leading-relaxed ${
               darkMode ? 'text-slate-400' : 'text-slate-600'
             }`}>
-              Built by <strong>Vibrantick Infotech Solutions</strong>. FoodAdda delivers multi-tenant restaurant management for franchises, standalone dining, and cloud kitchens—unifying real-time billing, Socket.IO Kitchen Display Systems (KDS), automated thermal printing, and direct <strong>Zomato & Swiggy</strong> webhook ingestion.
+              Built by <strong>Vibrantick Infotech Solutions</strong>. FoodAdda delivers multi-tenant restaurant management for franchises, standalone dining, and cloud kitchens—unifying real-time billing, Kitchen Display Systems (KDS), automated thermal printing, and direct <strong>Zomato & Swiggy</strong> webhook ingestion.
             </p>
 
             {/* CTAs */}
@@ -147,7 +147,7 @@ export default function Hero({ darkMode }) {
                 </div>
                 <div>
                   <div className="flex items-center gap-1.5">
-                    <span className="text-[11px] font-bold leading-tight">Socket.IO KDS</span>
+                    <span className="text-[11px] font-bold leading-tight">100% Offline POS</span>
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                   </div>
                   <p className={`text-[10px] ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
@@ -172,7 +172,7 @@ export default function Hero({ darkMode }) {
                 <div>
                   <div className="flex items-center gap-1.5">
                     <span className="text-[11px] font-bold leading-tight">Zomato & Swiggy</span>
-                    <span className="text-[9px] font-semibold px-1 rounded bg-emerald-500/15 text-emerald-500">HMAC Webhooks</span>
+                    {/* <span className="text-[9px] font-semibold px-1 rounded bg-emerald-500/15 text-emerald-500">HMAC Webhooks</span> */}
                   </div>
                   <p className={`text-[10px] ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
                     Direct Branch Ingestion
@@ -194,9 +194,9 @@ export default function Hero({ darkMode }) {
                   <ShieldCheck size={14} />
                 </div>
                 <div>
-                  <span className="text-[11px] font-bold leading-tight block">Tenant & Branch Scoping</span>
+                  <span className="text-[11px] font-bold leading-tight block">Lighting Fast Billing</span>
                   <p className={`text-[10px] ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
-                    AES-256-GCM Encrypted
+                    Instant Order Processing
                   </p>
                 </div>
               </motion.div>
@@ -204,28 +204,7 @@ export default function Hero({ darkMode }) {
           </motion.div>
         </div>
 
-        {/* Operating Branches Ribbon */}
-        <div className="mt-20 pt-10 border-t border-slate-800/40 dark:border-white/[0.06] text-center">
-          <p className={`text-xs font-semibold uppercase tracking-wider mb-6 ${
-            darkMode ? 'text-slate-500' : 'text-slate-400'
-          }`}>
-            Multi-Tenant Hierarchical Architecture Deployed Across Regional Hubs
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 opacity-80">
-            {partners.map((partner) => (
-              <span
-                key={partner}
-                className={`text-xs md:text-sm font-semibold tracking-tight px-3 py-1 rounded-full border ${
-                  darkMode
-                    ? 'border-white/[0.08] text-slate-300 bg-white/[0.02]'
-                    : 'border-slate-200 text-slate-700 bg-slate-100'
-                }`}
-              >
-                {partner}
-              </span>
-            ))}
-          </div>
-        </div>
+    
       </div>
     </section>
   )

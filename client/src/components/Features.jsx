@@ -5,7 +5,6 @@ import {
   Receipt,
   Layers,
   BarChart3,
-  Smartphone,
   Truck,
   ShieldCheck,
   QrCode,
@@ -134,12 +133,12 @@ export default function Features({ darkMode }) {
             </div>
           </motion.div>
 
-          {/* Bento Card 3: Recipe & Inventory Auto-Deductions (Span 4) */}
+          {/* Bento Card 3: Recipe & Inventory Auto-Deductions (Span 6) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="md:col-span-4 saas-card p-7 flex flex-col justify-between"
+            className="md:col-span-6 saas-card p-7 flex flex-col justify-between"
           >
             <div>
               <div className="p-3 rounded-2xl bg-[#C52033]/15 text-[#C52033] w-fit mb-5">
@@ -165,43 +164,12 @@ export default function Features({ darkMode }) {
             </div>
           </motion.div>
 
-          {/* Bento Card 4: Captain Waiter App (Span 4) */}
+          {/* Bento Card 4: 100% Offline Capability (Span 6) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="md:col-span-4 saas-card p-7 flex flex-col justify-between"
-          >
-            <div>
-              <div className="p-3 rounded-2xl bg-sky-500/15 text-sky-500 w-fit mb-5">
-                <Smartphone size={22} />
-              </div>
-
-              <h3 className={`text-lg font-bold tracking-tight mb-2 ${
-                darkMode ? 'text-white' : 'text-slate-900'
-              }`}>
-                Captain Mobile Waiter App
-              </h3>
-
-              <p className={`text-sm leading-relaxed ${
-                darkMode ? 'text-slate-400' : 'text-slate-600'
-              }`}>
-                Waitstaff punch orders tableside on Android or iOS devices. Routes immediately to the kitchen printer.
-              </p>
-            </div>
-
-            <div className="mt-6 pt-4 border-t border-slate-800/60 dark:border-white/[0.06] flex items-center justify-between text-xs">
-              <span className={darkMode ? 'text-slate-400' : 'text-slate-500'}>Average Time Saved per Table:</span>
-              <span className="text-sky-500 font-bold">4.5 Mins</span>
-            </div>
-          </motion.div>
-
-          {/* Bento Card 5: 100% Offline Capability (Span 4) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.25 }}
-            className="md:col-span-4 saas-card p-7 flex flex-col justify-between"
+            className="md:col-span-6 saas-card p-7 flex flex-col justify-between"
           >
             <div>
               <div className="p-3 rounded-2xl bg-emerald-500/15 text-emerald-500 w-fit mb-5">

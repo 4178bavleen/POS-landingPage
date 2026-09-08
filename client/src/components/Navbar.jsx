@@ -1,21 +1,21 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Sun, Moon, ArrowRight } from 'lucide-react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.png'
 
 const navLinks = [
+  { label: 'Home', path: '/', isPage: true },
+  { label: 'WhyFoodAdda', path: '/features', isPage: true },
   { label: 'Architecture', href: '#architecture' },
-  { label: 'Features', href: '#features' },
-  { label: 'Integrations', href: '#integrations' },
-  { label: 'Why FoodAdda', href: '#problem-solution' },
-  { label: 'ROI Estimator', href: '#roi-calculator' },
-  { label: 'Pricing', href: '#pricing' },
   { label: 'FAQ', href: '#faq' },
 ]
 
 export default function Navbar({ darkMode, setDarkMode }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const location = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -23,18 +23,41 @@ export default function Navbar({ darkMode, setDarkMode }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const scrollTo = (href) => {
+  const handleNavClick = (link) => {
     setMobileOpen(false)
-    const el = document.querySelector(href)
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+
+    if (link.isPage) {
+      if (link.path === '/' && location.pathname === '/') {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      } else {
+        navigate(link.path)
+      }
+      return
+    }
+
+    // Anchor link logic
+    if (location.pathname === '/') {
+      const el = document.querySelector(link.href)
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    } else {
+      navigate(`/${link.href}`)
+    }
+  }
+
+  const handleActionClick = (targetHash) => {
+    setMobileOpen(false)
+    if (location.pathname === '/') {
+      const el = document.querySelector(targetHash)
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    } else {
+      navigate(`/${targetHash}`)
+    }
   }
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'py-3'
-          : 'py-5'
+        scrolled ? 'py-3' : 'py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,7 +69,15 @@ export default function Navbar({ darkMode, setDarkMode }) {
           }`}
         >
           {/* Brand Logo */}
-          <a href="#" className="flex items-center gap-3 group">
+          <Link
+            to="/"
+            onClick={() => {
+              if (location.pathname === '/') {
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+              }
+            }}
+            className="flex items-center gap-3 group cursor-pointer"
+          >
             <div className="relative">
               <div className="absolute -inset-1 bg-[#C52033]/30 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
               <img
@@ -56,30 +87,50 @@ export default function Navbar({ darkMode, setDarkMode }) {
               />
             </div>
             <div className="flex flex-col">
-              <span className={`text-lg sm:text-xl font-bold tracking-tight leading-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+              <span
+                className={`text-lg sm:text-xl font-bold tracking-tight leading-tight ${
+                  darkMode ? 'text-white' : 'text-slate-900'
+                }`}
+              >
                 Food<span className="text-[#C52033]">Adda</span>
               </span>
               <span className="text-[9px] font-semibold text-slate-400 tracking-wider uppercase -mt-0.5">
                 by Vibrantick
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <button
-                key={link.label}
-                onClick={() => scrollTo(link.href)}
-                className={`px-3.5 py-1.5 text-xs sm:text-sm font-medium rounded-full transition-all duration-200 cursor-pointer ${
-                  darkMode
-                    ? 'text-slate-300 hover:text-white hover:bg-white/[0.06]'
-                    : 'text-slate-600 hover:text-slate-950 hover:bg-slate-200/60'
-                }`}
-              >
-                {link.label}
-              </button>
-            ))}
+            {navLinks.map((link) => {
+              const isPageActive =
+                link.isPage &&
+                link.path !== '/' &&
+                (location.pathname === link.path ||
+                  (link.path === '/features' && location.pathname === '/why-foodadda') ||
+                  (link.path === '/why-foodadda' && location.pathname === '/features'))
+              const isHomeActive = link.path === '/' && location.pathname === '/'
+
+              return (
+                <button
+                  key={link.label}
+                  onClick={() => handleNavClick(link)}
+                  className={`px-3.5 py-1.5 text-xs sm:text-sm font-medium rounded-full transition-all duration-200 cursor-pointer ${
+                    isPageActive
+                      ? 'bg-[#C52033]/15 text-[#C52033] border border-[#C52033]/30 font-semibold shadow-sm'
+                      : isHomeActive && link.isPage
+                      ? darkMode
+                        ? 'text-white font-semibold'
+                        : 'text-slate-950 font-semibold'
+                      : darkMode
+                      ? 'text-slate-300 hover:text-white hover:bg-white/[0.06]'
+                      : 'text-slate-600 hover:text-slate-950 hover:bg-slate-200/60'
+                  }`}
+                >
+                  {link.label}
+                </button>
+              )
+            })}
           </div>
 
           {/* Desktop Right Action Buttons */}
@@ -97,16 +148,18 @@ export default function Navbar({ darkMode, setDarkMode }) {
             </button>
 
             <button
-              onClick={() => scrollTo('#pricing')}
+              onClick={() => handleActionClick('#pricing')}
               className={`text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
-                darkMode ? 'text-slate-300 hover:text-white' : 'text-slate-700 hover:text-slate-950'
+                darkMode
+                  ? 'text-slate-300 hover:text-white'
+                  : 'text-slate-700 hover:text-slate-950'
               }`}
             >
               Pricing
             </button>
 
             <button
-              onClick={() => scrollTo('#newsletter')}
+              onClick={() => handleActionClick('#newsletter')}
               className="btn-primary-glow text-xs sm:text-sm font-semibold px-4 py-2 rounded-full flex items-center gap-1.5 cursor-pointer shadow-md"
             >
               <span>Get Started</span>
@@ -154,25 +207,35 @@ export default function Navbar({ darkMode, setDarkMode }) {
             }`}
           >
             <div className="space-y-1.5">
-              {navLinks.map((link) => (
-                <button
-                  key={link.label}
-                  onClick={() => scrollTo(link.href)}
-                  className={`block w-full text-left px-3 py-2 text-sm font-medium rounded-lg ${
-                    darkMode
-                      ? 'text-slate-300 hover:text-white hover:bg-white/5'
-                      : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100'
-                  }`}
-                >
-                  {link.label}
-                </button>
-              ))}
+              {navLinks.map((link) => {
+                const isPageActive =
+                  link.isPage &&
+                  link.path !== '/' &&
+                  (location.pathname === link.path ||
+                    (link.path === '/features' && location.pathname === '/why-foodadda') ||
+                    (link.path === '/why-foodadda' && location.pathname === '/features'))
+                return (
+                  <button
+                    key={link.label}
+                    onClick={() => handleNavClick(link)}
+                    className={`block w-full text-left px-3 py-2 text-sm font-medium rounded-lg cursor-pointer ${
+                      isPageActive
+                        ? 'bg-[#C52033]/15 text-[#C52033] font-semibold border border-[#C52033]/30'
+                        : darkMode
+                        ? 'text-slate-300 hover:text-white hover:bg-white/5'
+                        : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100'
+                    }`}
+                  >
+                    {link.label}
+                  </button>
+                )
+              })}
               <div className="pt-3 border-t border-slate-800/60 dark:border-white/[0.08]">
                 <button
-                  onClick={() => scrollTo('#newsletter')}
-                  className="btn-primary-glow w-full justify-center text-sm py-2.5 rounded-xl flex items-center gap-2"
+                  onClick={() => handleActionClick('#newsletter')}
+                  className="btn-primary-glow w-full justify-center text-sm py-2.5 rounded-xl flex items-center gap-2 cursor-pointer"
                 >
-                  Get Started Free
+                  <span>Get Started Free</span>
                   <ArrowRight size={15} />
                 </button>
               </div>

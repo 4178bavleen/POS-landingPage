@@ -1,22 +1,12 @@
 import { useState, useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Stats from './components/Stats'
-import BusinessPulse from './components/BusinessPulse'
-import PromoShowcase from './components/PromoShowcase'
-import Architecture from './components/Architecture'
-import ProblemSolution from './components/ProblemSolution'
-import Features from './components/Features'
-import RoiCalculator from './components/RoiCalculator'
-import HowItWorks from './components/HowItWorks'
-import Comparison from './components/Comparison'
-import Pricing from './components/Pricing'
-import Testimonials from './components/Testimonials'
-import FAQ from './components/FAQ'
-import Newsletter from './components/Newsletter'
 import Footer from './components/Footer'
 import CustomCursor from './components/CustomCursor'
 import ScrollProgress from './components/ScrollProgress'
+import ScrollToTop from './components/ScrollToTop'
+import Home from './pages/Home'
+import FeaturesPage from './pages/FeaturesPage'
 
 function App() {
   const [darkMode, setDarkMode] = useState(true)
@@ -40,30 +30,18 @@ function App() {
       style={{ backgroundColor: bgColor, color: textColor, minHeight: '100vh' }}
       className="overflow-x-hidden transition-colors duration-300 relative"
     >
+      <ScrollToTop />
       <ScrollProgress />
       <CustomCursor darkMode={darkMode} />
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
 
-      <main>
-        <Hero darkMode={darkMode} />
-        <Stats darkMode={darkMode} />
-        <PromoShowcase darkMode={darkMode} />
-        <BusinessPulse darkMode={darkMode} />
-        <Architecture darkMode={darkMode} />
-        <div id="problem-solution">
-          <ProblemSolution darkMode={darkMode} />
-        </div>
-        <Features darkMode={darkMode} />
-        <div id="roi-calculator">
-          <RoiCalculator darkMode={darkMode} />
-        </div>
-        <HowItWorks darkMode={darkMode} />
-        <Comparison darkMode={darkMode} />
-        <Pricing darkMode={darkMode} />
-        <Testimonials darkMode={darkMode} />
-        <FAQ darkMode={darkMode} />
-        <Newsletter darkMode={darkMode} />
-      </main>
+      <Routes>
+        <Route path="/" element={<Home darkMode={darkMode} />} />
+        <Route path="/features" element={<FeaturesPage darkMode={darkMode} />} />
+        <Route path="/why-foodadda" element={<FeaturesPage darkMode={darkMode} />} />
+        {/* Fallback route */}
+        <Route path="*" element={<Home darkMode={darkMode} />} />
+      </Routes>
 
       <Footer darkMode={darkMode} />
     </div>

@@ -5,7 +5,7 @@ import dashboardMockup from '../assets/dashboard-mockup.png'
 
 const metrics = [
   { label: 'Real-time sales at a glance', icon: TrendingUp },
-  { label: 'Low-stock automated signals', icon: AlertCircle },
+  { label: 'Low-stock automated Alerts', icon: AlertCircle },
   { label: 'Multi-branch outlet activity', icon: Activity },
   { label: 'Hourly peak sales analysis', icon: BarChart3 },
 ]

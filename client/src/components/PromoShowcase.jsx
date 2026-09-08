@@ -4,7 +4,7 @@ import { CheckCircle2, Flame } from 'lucide-react'
 
 const promoHighlights = [
   'Live Real-Time Billing & Quick-Pay',
-  'Interactive Table & Room Status',
+  'Interactive Table Management',
   'Dynamic Franchise Analytics Dashboard',
   'Multi-Kitchen KOT Dispatch Engine',
 ]

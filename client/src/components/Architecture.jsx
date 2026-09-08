@@ -22,7 +22,7 @@ const archNodes = [
     badge: 'Tier 3: Local Outlets',
     title: 'Branch POS & KDS Operators',
     desc: 'Local high-speed POS billing, Socket.IO real-time kitchen display rooms, cash drawers, and ESC/POS thermal printing.',
-    highlights: ['Socket.IO Room Scoping', 'Instant KOT Dispatch', 'Local Cash Reconciliation'],
+    highlights: ['Keep yu', 'Instant KOT Dispatch', 'Local Cash Reconciliation'],
   },
 ]
 
@@ -50,7 +50,7 @@ export default function Architecture({ darkMode }) {
           </h2>
 
           <p className={`text-base sm:text-lg ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
-            Engineered by <strong>Vibrantick Infotech Solutions</strong>. FoodAdda delivers true enterprise data isolation, Socket.IO room scoping, and asynchronous aggregator webhook ingestion.
+            Engineered by <strong>Vibrantick Infotech Solutions</strong>. FoodAdda delivers true enterprise data isolation, Real Time Inventory and Multi-branch Management.
           </p>
         </div>
 
@@ -104,33 +104,7 @@ export default function Architecture({ darkMode }) {
           })}
         </div>
 
-        {/* Integration Architecture Bar */}
-        <div className={`p-6 rounded-2xl border flex flex-col md:flex-row items-center justify-between gap-6 ${
-          darkMode ? 'bg-[#101216] border-white/[0.08]' : 'bg-slate-50 border-slate-200'
-        }`}>
-          <div className="flex items-center gap-4">
-            <div className="p-3 rounded-xl bg-emerald-500/15 text-emerald-500 shrink-0">
-              <KeyRound size={22} />
-            </div>
-            <div>
-              <h4 className={`text-sm font-bold ${darkMode ? 'text-white' : 'text-slate-900'}`}>
-                Master Vendor API & HMAC Webhook Verification
-              </h4>
-              <p className={`text-xs ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
-                Super Admins maintain master credentials. Outlet managers simply connect their Zomato ResID or Swiggy Store ID with zero duplicate order risk (`platform_externalOrderId` idempotency).
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3 shrink-0">
-            <span className="text-xs font-bold px-3 py-1.5 rounded-lg bg-red-500/15 text-red-500 border border-red-500/20">
-              Zomato Direct
-            </span>
-            <span className="text-xs font-bold px-3 py-1.5 rounded-lg bg-orange-500/15 text-orange-500 border border-orange-500/20">
-              Swiggy Direct
-            </span>
-          </div>
-        </div>
+        
       </div>
     </section>
   )

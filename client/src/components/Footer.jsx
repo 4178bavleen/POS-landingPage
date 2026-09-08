@@ -1,12 +1,41 @@
+import { Link } from 'react-router-dom'
 import logo from '../assets/logo.png'
 import { FiTwitter, FiInstagram, FiLinkedin, FiYoutube } from 'react-icons/fi'
 import { Mail, Phone, MapPin, Building2, ShieldCheck } from 'lucide-react'
 
 const footerLinks = {
-  Platform: ['Multi-Tenant POS', 'Socket.IO KDS', 'Silent Print Service', 'Recipe & Inventory', 'Branch Management', 'Aggregator Sync'],
-  Solutions: ['Franchise Chains', 'Single Restaurants', 'Dark & Cloud Kitchens', 'QSR Counters', 'Cafes & Bakeries', 'Restro-Bars'],
-  Architecture: ['Tenant Isolation', 'HMAC Webhook Ingestion', 'PostgreSQL & Prisma', 'AES-256 Encryption', 'API Documentation', 'Security Audit'],
-  Company: ['About Vibrantick', 'FoodAdda Overview', 'Franchise Partner Program', 'Support Hotline', 'Contact Sales', 'Terms & SLA'],
+  Platform: [
+    { label: 'Multi-Tenant POS', to: '/features' },
+    { label: 'Socket.IO KDS', to: '/features' },
+    { label: 'Silent Print Service', to: '/features' },
+    { label: 'Recipe & Inventory', to: '/features' },
+    { label: 'Branch Management', to: '/features' },
+    { label: 'Aggregator Sync', to: '/features' },
+  ],
+  Solutions: [
+    { label: 'Franchise Chains', to: '/#problem-solution' },
+    { label: 'Single Restaurants', to: '/#problem-solution' },
+    { label: 'Dark & Cloud Kitchens', to: '/#problem-solution' },
+    { label: 'QSR Counters', to: '/#problem-solution' },
+    { label: 'Cafes & Bakeries', to: '/#problem-solution' },
+    { label: 'Restro-Bars', to: '/#problem-solution' },
+  ],
+  Architecture: [
+    { label: 'Tenant Isolation', to: '/#architecture' },
+    { label: 'HMAC Webhook Ingestion', to: '/#architecture' },
+    { label: 'PostgreSQL & Prisma', to: '/#architecture' },
+    { label: 'AES-256 Encryption', to: '/#architecture' },
+    { label: 'API Documentation', to: '/#architecture' },
+    { label: 'Security Audit', to: '/#architecture' },
+  ],
+  Company: [
+    { label: 'About Vibrantick', to: '/#newsletter' },
+    { label: 'FoodAdda Overview', to: '/' },
+    { label: 'Franchise Partner Program', to: '/#newsletter' },
+    { label: 'Support Hotline', to: 'tel:18002008899', isExternal: true },
+    { label: 'Contact Sales', to: '/#newsletter' },
+    { label: 'Terms & SLA', to: '#' },
+  ],
 }
 
 const socials = [
@@ -23,7 +52,7 @@ export default function Footer({ darkMode }) {
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-12">
           {/* Brand Info */}
           <div className="col-span-2">
-            <a href="#" className="flex items-center gap-3 mb-4 group">
+            <Link to="/" className="flex items-center gap-3 mb-4 group">
               <img
                 src={logo}
                 alt="FoodAdda Logo"
@@ -37,7 +66,7 @@ export default function Footer({ darkMode }) {
                   A Product by Vibrantick Infotech Solutions
                 </span>
               </div>
-            </a>
+            </Link>
 
             <p className={`text-xs sm:text-sm leading-relaxed mb-6 max-w-sm ${
               darkMode ? 'text-slate-400' : 'text-slate-600'
@@ -104,15 +133,26 @@ export default function Footer({ darkMode }) {
               </h4>
               <ul className="space-y-2.5">
                 {links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className={`text-xs transition-colors hover:text-[#C52033] ${
-                        darkMode ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-slate-900'
-                      }`}
-                    >
-                      {link}
-                    </a>
+                  <li key={link.label}>
+                    {link.isExternal ? (
+                      <a
+                        href={link.to}
+                        className={`text-xs transition-colors hover:text-[#C52033] ${
+                          darkMode ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-slate-900'
+                        }`}
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        to={link.to}
+                        className={`text-xs transition-colors hover:text-[#C52033] ${
+                          darkMode ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-slate-900'
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
