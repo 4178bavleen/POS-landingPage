@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Sun, Moon, ArrowRight } from 'lucide-react'
+import { Menu, X, Sun, Moon, ArrowRight, CalendarCheck } from 'lucide-react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.png'
+import { POS_APP_URL } from '../config/api'
+import { useBranding } from '../context/BrandingContext'
 
 const navLinks = [
   { label: 'Home', path: '/', isPage: true },
@@ -12,6 +14,7 @@ const navLinks = [
 ]
 
 export default function Navbar({ darkMode, setDarkMode }) {
+  const { logo: brandLogo, brandName } = useBranding()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
@@ -81,8 +84,8 @@ export default function Navbar({ darkMode, setDarkMode }) {
             <div className="relative">
               <div className="absolute -inset-1 bg-[#C52033]/30 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
               <img
-                src={logo}
-                alt="FoodAdda"
+                src={brandLogo || logo}
+                alt={brandName}
                 className="relative h-8 w-8 sm:h-9 sm:w-9 rounded-full object-contain p-0.5"
               />
             </div>
@@ -92,7 +95,13 @@ export default function Navbar({ darkMode, setDarkMode }) {
                   darkMode ? 'text-white' : 'text-slate-900'
                 }`}
               >
-                Food<span className="text-[#C52033]">Adda</span>
+                {brandName === 'FoodAdda' ? (
+                  <>
+                    Food<span className="text-[#C52033]">Adda</span>
+                  </>
+                ) : (
+                  brandName
+                )}
               </span>
               <span className="text-[9px] font-semibold text-slate-400 tracking-wider uppercase -mt-0.5">
                 by Vibrantick
@@ -158,12 +167,23 @@ export default function Navbar({ darkMode, setDarkMode }) {
               Pricing
             </button>
 
+            <a
+              href={`${POS_APP_URL}/login`}
+              className={`text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-lg transition-colors ${
+                darkMode
+                  ? 'text-slate-300 hover:text-white'
+                  : 'text-slate-700 hover:text-slate-950'
+              }`}
+            >
+              Login
+            </a>
+
             <button
               onClick={() => handleActionClick('#newsletter')}
               className="btn-primary-glow text-xs sm:text-sm font-semibold px-4 py-2 rounded-full flex items-center gap-1.5 cursor-pointer shadow-md"
             >
-              <span>Get Started</span>
-              <ArrowRight size={14} />
+              <CalendarCheck size={14} />
+              <span>Book a Demo</span>
             </button>
           </div>
 
@@ -230,13 +250,20 @@ export default function Navbar({ darkMode, setDarkMode }) {
                   </button>
                 )
               })}
-              <div className="pt-3 border-t border-slate-800/60 dark:border-white/[0.08]">
+              <div className="pt-3 border-t border-slate-800/60 dark:border-white/[0.08] space-y-2">
+                <a
+                  href={`${POS_APP_URL}/login`}
+                  onClick={() => setMobileOpen(false)}
+                  className="btn-secondary-glow block w-full text-center text-sm py-2.5 rounded-xl font-semibold"
+                >
+                  POS Login
+                </a>
                 <button
                   onClick={() => handleActionClick('#newsletter')}
                   className="btn-primary-glow w-full justify-center text-sm py-2.5 rounded-xl flex items-center gap-2 cursor-pointer"
                 >
-                  <span>Get Started Free</span>
-                  <ArrowRight size={15} />
+                  <CalendarCheck size={15} />
+                  <span>Book a Demo</span>
                 </button>
               </div>
             </div>

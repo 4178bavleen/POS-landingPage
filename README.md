@@ -89,17 +89,17 @@ cd server && npm install
 MONGODB_URI=mongodb://localhost:27017/foodadda
 PORT=5000
 NODE_ENV=development
-CORS_ORIGIN=http://localhost:5173
+CORS_ORIGIN=http://localhost:5174
 ```
 
 ### 3. Run Development Servers
 
 ```bash
-# From root — runs both client (port 5173) and server (port 5000) together
+# From root — runs both client (port 5174) and server (port 5000) together
 npm run dev
 
 # Or individually:
-npm run dev:client    # React at http://localhost:5173
+npm run dev:client    # React at http://localhost:5174
 npm run dev:server    # Express at http://localhost:5000
 ```
 

@@ -1,23 +1,56 @@
-import { useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Check, ArrowRight, Sparkles, ShieldCheck, Zap } from 'lucide-react'
+import { Check, ArrowRight, Sparkles, ShieldCheck, Zap, Star, Loader2, Building2, Users } from 'lucide-react'
+import { API_BASE_URL } from '../config/api'
 
-const singlePlanFeatures = [
-  'Unlimited Billing Counters & Order Tickets',
-  'Real-Time Socket.IO Kitchen Display System (KDS)',
-  'Direct Swiggy & Zomato Webhook Ingestion',
-  'Automated Recipe-Level Live Inventory Deductions',
-  '100% Offline Billing Mode with Instant Cloud Sync',
-  'Silent Thermal ESC/POS Receipt & KOT Printing',
-  'Interactive Table Management & Split Billing',
-  'Automated Day-End (Z-Report) & GST Compliance',
-  'Dynamic Contactless QR Digital Menu Ordering',
-  'Customer CRM, Digital WhatsApp E-Bills & Loyalty',
-  'Centralized Multi-Outlet Menu & Royalty Controls',
-  'Priority 24/7 Phone, WhatsApp & Technical Support',
+const FEATURE_LABELS = {
+  pos: 'Multi-Tenant POS & Instant KOT',
+  reports: 'Real-Time Sales & GST Analytics',
+  inventory: 'Recipe-Level Inventory Tracking',
+  onlineOrders: 'Swiggy & Zomato Webhook Sync',
+  ai: 'AI Franchise Expansion & Forecasts',
+}
+
+const DEFAULT_PLANS = [
+  {
+    id: 2,
+    name: 'Starter',
+    description: 'Basic POS for single restaurant operations',
+    price: '999',
+    billingCycle: 'MONTHLY',
+    maxBranches: 1,
+    maxUsers: 5,
+    features: { pos: true, reports: true },
+    isActive: true,
+  },
+  {
+    id: 3,
+    name: 'Pro',
+    description: 'Complete suite for growing restaurant chains',
+    price: '2499',
+    billingCycle: 'MONTHLY',
+    maxBranches: 5,
+    maxUsers: 20,
+    features: { pos: true, reports: true, inventory: true, onlineOrders: true },
+    isActive: true,
+    isPopular: true,
+  },
+  {
+    id: 4,
+    name: 'Enterprise',
+    description: 'Unlimited scale with priority 24/7 dedicated support',
+    price: '4999',
+    billingCycle: 'MONTHLY',
+    maxBranches: 999,
+    maxUsers: 999,
+    features: { pos: true, reports: true, inventory: true, onlineOrders: true, ai: true },
+    isActive: true,
+  },
 ]
 
 export default function Pricing({ darkMode }) {
+  const [plans, setPlans] = useState(DEFAULT_PLANS)
+  const [loading, setLoading] = useState(true)
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
 
@@ -25,6 +58,32 @@ export default function Pricing({ darkMode }) {
     const el = document.querySelector(href)
     if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
+
+  useEffect(() => {
+    // Fetch real subscription plans from POS backend API
+    const endpoint = API_BASE_URL ? `${API_BASE_URL}/api/v1/admin/subscriptions/plans` : '/api/v1/admin/subscriptions/plans'
+    fetch(endpoint)
+      .catch(() => fetch('/api/v1/admin/subscriptions/plans'))
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`)
+        return res.json()
+      })
+      .then((res) => {
+        if (res?.success && Array.isArray(res.data) && res.data.length > 0) {
+          // Filter active plans and sort by price
+          const active = res.data.filter((p) => p.isActive !== false)
+          if (active.length > 0) {
+            setPlans(active)
+          }
+        }
+      })
+      .catch((err) => {
+        console.log('POS Backend plans fetch note (using fallback):', err.message)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
+  }, [])
 
   return (
     <section id="pricing" className="py-24 relative overflow-hidden" ref={ref}>
@@ -37,7 +96,7 @@ export default function Pricing({ darkMode }) {
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full gradient-badge mb-4">
             <Sparkles size={14} className="text-[#C52033]" />
             <span className="text-xs font-semibold tracking-wide text-[#C52033] uppercase">
-              Transparent Pricing
+              Transparent Pricing Plans
             </span>
           </div>
 
@@ -46,8 +105,8 @@ export default function Pricing({ darkMode }) {
               darkMode ? 'text-white' : 'text-slate-900'
             }`}
           >
-            One simple, all-inclusive plan for{' '}
-            <span className="gradient-text">your restaurant</span>
+            Flexible plans for{' '}
+            <span className="gradient-text">every stage of growth</span>
           </h2>
 
           <p
@@ -55,124 +114,181 @@ export default function Pricing({ darkMode }) {
               darkMode ? 'text-slate-400' : 'text-slate-600'
             }`}
           >
-            Zero hidden charges. No commission on your sales. Everything unlocked at one flat annual rate.
+            Zero hidden charges. No commission on your food orders. Choose the package that fits your operational scale.
           </p>
         </div>
 
-        {/* Single Pricing Card */}
-        <div className="max-w-3xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
-            className={`saas-card p-8 sm:p-12 relative overflow-hidden border-[#C52033]/60 shadow-2xl shadow-[#C52033]/10 ring-1 ring-[#C52033]/40 ${
-              darkMode ? 'bg-[#101216]' : 'bg-white'
-            }`}
-          >
-            {/* Top Badge */}
-            <div className="absolute top-0 right-8 px-4 py-1 rounded-b-xl bg-[#C52033] text-white text-[11px] font-bold tracking-wider uppercase shadow-md shadow-[#C52033]/40">
-              All-In-One Annual Access
-            </div>
+        {/* Dynamic Plans Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
+          {plans
+            .filter((p) => Number(p.price) > 0 || plans.length <= 3)
+            .map((plan, idx) => {
+              const isPopular =
+                plan.name?.toLowerCase().includes('pro') ||
+                plan.isPopular ||
+                idx === 1
+              const priceNum = Number(plan.price) || 0
+              const formattedPrice = priceNum.toLocaleString('en-IN')
+              const cycle = plan.billingCycle?.toLowerCase() === 'annual' ? '/ year' : '/ month'
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pb-8 mb-8 border-b border-slate-800/60 dark:border-white/[0.08]">
-              {/* Left Column: Plan Title & Description */}
-              <div className="lg:col-span-7">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C52033]/10 text-[#C52033] text-xs font-bold uppercase tracking-wider mb-3">
-                  <Zap size={13} />
-                  <span>Complete Suite</span>
-                </div>
+              // Resolve features
+              const featureList = []
+              if (plan.maxBranches) {
+                featureList.push(
+                  plan.maxBranches >= 100
+                    ? 'Unlimited Outlets / Branches'
+                    : `Up to ${plan.maxBranches} Outlet${plan.maxBranches > 1 ? 's' : ''}`
+                )
+              }
+              if (plan.maxUsers) {
+                featureList.push(
+                  plan.maxUsers >= 100
+                    ? 'Unlimited Staff Users'
+                    : `Up to ${plan.maxUsers} Staff Accounts`
+                )
+              }
 
-                <h3
-                  className={`text-2xl sm:text-3xl font-extrabold tracking-tight mb-2 ${
-                    darkMode ? 'text-white' : 'text-slate-900'
-                  }`}
+              if (typeof plan.features === 'object' && plan.features !== null) {
+                Object.entries(plan.features).forEach(([k, val]) => {
+                  if (val && FEATURE_LABELS[k]) {
+                    featureList.push(FEATURE_LABELS[k])
+                  }
+                })
+              }
+
+              // Standard guarantees
+              featureList.push('100% Offline Mode Sync')
+              featureList.push('Thermal Receipt & KOT Printing')
+              if (priceNum >= 2000) {
+                featureList.push('Priority 24/7 Phone & WhatsApp Support')
+              }
+
+              return (
+                <motion.div
+                  key={plan.id || plan.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.4, delay: idx * 0.1 }}
+                  className={`saas-card rounded-2xl p-7 sm:p-8 flex flex-col justify-between relative transition-all duration-300 hover:scale-[1.02] ${
+                    isPopular
+                      ? 'border-[#C52033] shadow-2xl shadow-[#C52033]/15 ring-2 ring-[#C52033]/50'
+                      : 'border-border'
+                  } ${darkMode ? 'bg-[#101216]' : 'bg-white'}`}
                 >
-                  Yearly Growth Plan
-                </h3>
-
-                <p
-                  className={`text-sm leading-relaxed ${
-                    darkMode ? 'text-slate-400' : 'text-slate-600'
-                  }`}
-                >
-                  Complete access to POS billing, real-time KDS, direct Swiggy & Zomato sync, inventory depletion, and franchise analytics for a full year.
-                </p>
-              </div>
-
-              {/* Right Column: Price Display */}
-              <div className="lg:col-span-5 lg:text-right flex flex-col lg:items-end">
-                <div className="flex items-baseline gap-1.5">
-                  <span
-                    className={`text-4xl sm:text-5xl font-black tracking-tight text-[#C52033]`}
-                  >
-                    ₹7,999
-                  </span>
-                  <span
-                    className={`text-sm font-semibold ${
-                      darkMode ? 'text-slate-400' : 'text-slate-500'
-                    }`}
-                  >
-                    / year
-                  </span>
-                </div>
-
-                <span
-                  className={`text-xs mt-1 font-medium ${
-                    darkMode ? 'text-slate-400' : 'text-slate-500'
-                  }`}
-                >
-                  Billed annually (Just ~₹666/month)
-                </span>
-                <span className="text-[11px] font-semibold text-emerald-500 mt-0.5">
-                  ✓ Zero commissions · Zero setup fee
-                </span>
-              </div>
-            </div>
-
-            {/* Features Grid */}
-            <div className="mb-10">
-              <p
-                className={`text-xs font-bold uppercase tracking-wider mb-5 ${
-                  darkMode ? 'text-slate-300' : 'text-slate-800'
-                }`}
-              >
-                Everything Included in Your Annual License:
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                {singlePlanFeatures.map((feat) => (
-                  <div key={feat} className="flex items-start gap-2.5">
-                    <div className="p-0.5 rounded-full bg-[#C52033]/15 text-[#C52033] shrink-0 mt-0.5">
-                      <Check size={13} strokeWidth={3} />
+                  {isPopular && (
+                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-1 rounded-full bg-[#C52033] text-white text-[10.5px] font-bold tracking-wider uppercase shadow-md flex items-center gap-1">
+                      <Star size={12} fill="currentColor" />
+                      <span>Most Popular</span>
                     </div>
-                    <span
-                      className={`text-xs sm:text-sm leading-tight font-medium ${
-                        darkMode ? 'text-slate-200' : 'text-slate-700'
+                  )}
+
+                  <div>
+                    {/* Title & Badge */}
+                    <div className="flex items-center justify-between mb-2">
+                      <h3
+                        className={`text-xl font-bold tracking-tight ${
+                          darkMode ? 'text-white' : 'text-slate-900'
+                        }`}
+                      >
+                        {plan.name}
+                      </h3>
+                      {isPopular ? (
+                        <span className="p-1 rounded-lg bg-[#C52033]/10 text-[#C52033]">
+                          <Zap size={16} />
+                        </span>
+                      ) : (
+                        <span className="p-1 rounded-lg bg-secondary text-muted-foreground">
+                          <Building2 size={16} />
+                        </span>
+                      )}
+                    </div>
+
+                    <p
+                      className={`text-xs min-h-[32px] leading-relaxed mb-6 ${
+                        darkMode ? 'text-slate-400' : 'text-slate-600'
                       }`}
                     >
-                      {feat}
-                    </span>
+                      {plan.description || 'Full POS management package'}
+                    </p>
+
+                    {/* Pricing */}
+                    <div className="mb-6 pb-6 border-b border-border">
+                      <div className="flex items-baseline gap-1.5">
+                        <span className="text-3xl sm:text-4xl font-black tracking-tight text-[#C52033]">
+                          ₹{formattedPrice}
+                        </span>
+                        <span
+                          className={`text-xs font-semibold ${
+                            darkMode ? 'text-slate-400' : 'text-slate-500'
+                          }`}
+                        >
+                          {cycle}
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-emerald-500 font-medium mt-1">
+                        ✓ Zero setup fees · 14-day free trial
+                      </p>
+                    </div>
+
+                    {/* Features List */}
+                    <div className="space-y-3 mb-8">
+                      <p
+                        className={`text-[11px] font-bold uppercase tracking-wider ${
+                          darkMode ? 'text-slate-300' : 'text-slate-700'
+                        }`}
+                      >
+                        Included Capabilities:
+                      </p>
+                      {featureList.slice(0, 6).map((feat, fIdx) => (
+                        <div key={fIdx} className="flex items-start gap-2.5">
+                          <div className="p-0.5 rounded-full bg-[#C52033]/15 text-[#C52033] shrink-0 mt-0.5">
+                            <Check size={12} strokeWidth={3} />
+                          </div>
+                          <span
+                            className={`text-xs leading-snug font-medium ${
+                              darkMode ? 'text-slate-300' : 'text-slate-700'
+                            }`}
+                          >
+                            {feat}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                ))}
-              </div>
-            </div>
 
-            {/* Action CTA */}
-            <div className="flex flex-col sm:flex-row items-center gap-4 pt-6 border-t border-slate-800/60 dark:border-white/[0.08]">
-              <button
-                onClick={() => scrollTo('#newsletter')}
-                className="btn-primary-glow w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-sm sm:text-base flex items-center justify-center gap-2 cursor-pointer shadow-xl transition-transform hover:scale-[1.02]"
-              >
-                <span>Get Started with ₹7,999 / Year</span>
-                <ArrowRight size={16} />
-              </button>
+                  {/* CTA Button */}
+                  <div>
+                    <button
+                      onClick={() => scrollTo('#newsletter')}
+                      className={`w-full py-3 rounded-xl font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer transition-all shadow-md ${
+                        isPopular
+                          ? 'btn-primary-glow'
+                          : darkMode
+                          ? 'bg-white/10 hover:bg-white/15 text-white'
+                          : 'bg-slate-900 hover:bg-slate-800 text-white'
+                      }`}
+                    >
+                      <span>Choose {plan.name}</span>
+                      <ArrowRight size={15} />
+                    </button>
+                  </div>
+                </motion.div>
+              )
+            })}
+        </div>
 
-              <div className="flex items-center gap-2 text-xs text-slate-400">
-                <ShieldCheck size={16} className="text-emerald-500" />
-                <span>14-day free trial · Assisted menu migration included</span>
-              </div>
-            </div>
-          </motion.div>
+        {/* Bottom Trust Guarantee */}
+        <div className="mt-12 text-center">
+          <div className="inline-flex items-center gap-2 text-xs text-muted-foreground bg-card/60 px-4 py-2 rounded-full border border-border">
+            <ShieldCheck size={16} className="text-emerald-500" />
+            <span>Need custom hardware bundles, thermal printers, or enterprise franchise rollout? </span>
+            <button
+              onClick={() => scrollTo('#newsletter')}
+              className="text-[#C52033] font-semibold hover:underline cursor-pointer"
+            >
+              Talk to our team →
+            </button>
+          </div>
         </div>
       </div>
     </section>

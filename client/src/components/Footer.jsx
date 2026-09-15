@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import logo from '../assets/logo.png'
+import { useBranding } from '../context/BrandingContext'
 import { FiTwitter, FiInstagram, FiLinkedin, FiYoutube } from 'react-icons/fi'
 import { Mail, Phone, MapPin, Building2, ShieldCheck } from 'lucide-react'
 
@@ -46,6 +47,8 @@ const socials = [
 ]
 
 export default function Footer({ darkMode }) {
+  const { logo: brandLogo, brandName } = useBranding()
+
   return (
     <footer className="border-t border-slate-800/60 dark:border-white/[0.08] pt-16 pb-12 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,13 +57,19 @@ export default function Footer({ darkMode }) {
           <div className="col-span-2">
             <Link to="/" className="flex items-center gap-3 mb-4 group">
               <img
-                src={logo}
-                alt="FoodAdda Logo"
+                src={brandLogo || logo}
+                alt={`${brandName} Logo`}
                 className="h-9 w-9 rounded-full object-contain p-0.5"
               />
               <div className="flex flex-col">
                 <span className={`text-xl font-bold tracking-tight leading-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
-                  Food<span className="text-[#C52033]">Adda</span>
+                  {brandName === 'FoodAdda' ? (
+                    <>
+                      Food<span className="text-[#C52033]">Adda</span>
+                    </>
+                  ) : (
+                    brandName
+                  )}
                 </span>
                 <span className="text-[10px] font-semibold text-slate-400 tracking-wider uppercase">
                   A Product by Vibrantick Infotech Solutions
