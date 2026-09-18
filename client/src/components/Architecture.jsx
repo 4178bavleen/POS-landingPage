@@ -50,7 +50,7 @@ export default function Architecture({ darkMode }) {
           </h2>
 
           <p className={`text-base sm:text-lg ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
-            Engineered by <strong>Vibrantick Infotech Solutions</strong>. FoodAdda delivers true enterprise data isolation, Real Time Inventory and Multi-branch Management.
+    Bhojan Bandhu delivers true enterprise data isolation, Real Time Inventory and Multi-branch Management.
           </p>
         </div>
 

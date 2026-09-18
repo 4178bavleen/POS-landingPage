@@ -48,7 +48,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home darkMode={darkMode} />} />
           <Route path="/features" element={<FeaturesPage darkMode={darkMode} />} />
-          <Route path="/why-foodadda" element={<FeaturesPage darkMode={darkMode} />} />
+          <Route path="/why-bhojan-bandhu" element={<FeaturesPage darkMode={darkMode} />} />
           <Route path="/login" element={<POSLoginRedirect />} />
           <Route path="/register" element={<Navigate to="/#newsletter" replace />} />
           <Route path="/book-a-demo" element={<Navigate to="/#newsletter" replace />} />

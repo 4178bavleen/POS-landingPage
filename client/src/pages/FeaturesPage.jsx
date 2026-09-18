@@ -218,32 +218,32 @@ const deepFeatures = [
 const comparisonData = [
   {
     feature: 'Offline Billing Reliability',
-    foodadda: '100% full billing & print capabilities with auto-sync',
+    bhojanbandhu: '100% full billing & print capabilities with auto-sync',
     legacy: 'Crashes or locks up without active internet connection',
   },
   {
     feature: 'Zomato & Swiggy Integration',
-    foodadda: 'Direct real-time webhook integration into single POS screen',
+    bhojanbandhu: 'Direct real-time webhook integration into single POS screen',
     legacy: 'Requires 2-3 separate physical tablets and manual re-punching',
   },
   {
     feature: 'Kitchen Display System (KDS)',
-    foodadda: 'Instant digital KDS with real-time station routing',
+    bhojanbandhu: 'Instant digital KDS with real-time station routing',
     legacy: 'Relies solely on prone-to-jamming paper KOT slips',
   },
   {
     feature: 'Multi-Outlet Hierarchy',
-    foodadda: 'Built-in multi-tenant architecture with master HQ control',
+    bhojanbandhu: 'Built-in multi-tenant architecture with master HQ control',
     legacy: 'Each outlet runs isolated database requiring manual exports',
   },
   {
     feature: 'Recipe & Ingredient Depletion',
-    foodadda: 'Automatic gram-by-gram depletion with WhatsApp low-stock alerts',
+    bhojanbandhu: 'Automatic gram-by-gram depletion with WhatsApp low-stock alerts',
     legacy: 'Periodic manual stock counts with high variance and pilferage',
   },
   {
     feature: 'Hardware Freedom',
-    foodadda: 'Works on any Windows, Android, Mac, or Linux device',
+    bhojanbandhu: 'Works on any Windows, Android, Mac, or Linux device',
     legacy: 'Locked to expensive proprietary hardware and annual dongles',
   },
 ]
@@ -301,7 +301,7 @@ export default function FeaturesPage({ darkMode }) {
               darkMode ? 'text-slate-300' : 'text-slate-600'
             }`}
           >
-            FoodAdda by <strong>Vibrantick</strong> unifies counter billing, kitchen display stations, delivery aggregators, and multi-tenant chain analytics into one seamless operating system.
+            Bhojan Bandhu unifies counter billing, kitchen display stations, delivery aggregators, and multi-tenant chain analytics into one seamless operating system.
           </p>
 
           {/* Quick Metrics Bar */}
@@ -453,7 +453,7 @@ export default function FeaturesPage({ darkMode }) {
           })}
         </div>
 
-        {/* Feature Comparison: FoodAdda vs Legacy POS */}
+        {/* Feature Comparison: Bhojan Bandhu vs Legacy POS */}
         <div className="mb-24">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full gradient-badge mb-3">
@@ -466,10 +466,10 @@ export default function FeaturesPage({ darkMode }) {
                 darkMode ? 'text-white' : 'text-slate-900'
               }`}
             >
-              Why Modern Restaurants Choose FoodAdda
+              Why Modern Restaurants Choose Bhojan Bandhu
             </h2>
             <p className={`text-sm ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
-              Compare FoodAdda's modern cloud-native architecture against legacy legacy POS software.
+              Compare Bhojan Bandhu's modern cloud-native architecture against legacy legacy POS software.
             </p>
           </div>
 
@@ -489,9 +489,7 @@ export default function FeaturesPage({ darkMode }) {
                     <th className="py-4 px-6 font-bold uppercase tracking-wider text-xs">
                       Operational Capability
                     </th>
-                    <th className="py-4 px-6 font-bold uppercase tracking-wider text-xs text-[#C52033]">
-                      FoodAdda by Vibrantick
-                    </th>
+                    
                     <th className="py-4 px-6 font-bold uppercase tracking-wider text-xs text-slate-400">
                       Traditional Legacy POS
                     </th>
@@ -518,7 +516,7 @@ export default function FeaturesPage({ darkMode }) {
                               darkMode ? 'text-slate-200' : 'text-slate-800'
                             }`}
                           >
-                            {row.foodadda}
+                            {row.bhojanbandhu}
                           </span>
                         </div>
                       </td>
@@ -554,7 +552,7 @@ export default function FeaturesPage({ darkMode }) {
                 darkMode ? 'text-white' : 'text-slate-900'
               }`}
             >
-              Ready to experience FoodAdda in your kitchen?
+              Ready to experience Bhojan Bandhu in your kitchen?
             </h2>
             <p
               className={`text-sm sm:text-base leading-relaxed mb-8 ${

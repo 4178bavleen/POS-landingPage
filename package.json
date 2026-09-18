@@ -1,7 +1,7 @@
 {
-  "name": "foodadda-pos-landing",
+  "name": "bhojan-bandhu-pos-landing",
   "version": "1.0.0",
-  "description": "foodAdda POS SaaS Landing Page",
+  "description": "Bhojan Bandhu POS SaaS Landing Page",
   "scripts": {
     "dev": "npm run dev --prefix client",
     "build": "npm run build --prefix client",

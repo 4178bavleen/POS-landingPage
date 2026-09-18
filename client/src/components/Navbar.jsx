@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Sun, Moon, ArrowRight, CalendarCheck } from 'lucide-react'
+import { Menu, X, Sun, Moon, CalendarCheck } from 'lucide-react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.png'
 import { POS_APP_URL } from '../config/api'
@@ -8,7 +8,7 @@ import { useBranding } from '../context/BrandingContext'
 
 const navLinks = [
   { label: 'Home', path: '/', isPage: true },
-  { label: 'WhyFoodAdda', path: '/features', isPage: true },
+  { label: 'Why Bhojan Bandhu', path: '/features', isPage: true },
   { label: 'Architecture', href: '#architecture' },
   { label: 'FAQ', href: '#faq' },
 ]
@@ -81,31 +81,13 @@ export default function Navbar({ darkMode, setDarkMode }) {
             }}
             className="flex items-center gap-3 group cursor-pointer"
           >
-            <div className="relative">
-              <div className="absolute -inset-1 bg-[#C52033]/30 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="relative flex items-center">
+              <div className="absolute -inset-1 bg-[#C52033]/30 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
               <img
                 src={brandLogo || logo}
                 alt={brandName}
-                className="relative h-8 w-8 sm:h-9 sm:w-9 rounded-full object-contain p-0.5"
+                className="relative h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
-            </div>
-            <div className="flex flex-col">
-              <span
-                className={`text-lg sm:text-xl font-bold tracking-tight leading-tight ${
-                  darkMode ? 'text-white' : 'text-slate-900'
-                }`}
-              >
-                {brandName === 'FoodAdda' ? (
-                  <>
-                    Food<span className="text-[#C52033]">Adda</span>
-                  </>
-                ) : (
-                  brandName
-                )}
-              </span>
-              <span className="text-[9px] font-semibold text-slate-400 tracking-wider uppercase -mt-0.5">
-                by Vibrantick
-              </span>
             </div>
           </Link>
 
@@ -116,8 +98,8 @@ export default function Navbar({ darkMode, setDarkMode }) {
                 link.isPage &&
                 link.path !== '/' &&
                 (location.pathname === link.path ||
-                  (link.path === '/features' && location.pathname === '/why-foodadda') ||
-                  (link.path === '/why-foodadda' && location.pathname === '/features'))
+                  (link.path === '/features' && location.pathname === '/why-bhojan-bandhu') ||
+                  (link.path === '/why-bhojan-bandhu' && location.pathname === '/features'))
               const isHomeActive = link.path === '/' && location.pathname === '/'
 
               return (
@@ -232,8 +214,8 @@ export default function Navbar({ darkMode, setDarkMode }) {
                   link.isPage &&
                   link.path !== '/' &&
                   (location.pathname === link.path ||
-                    (link.path === '/features' && location.pathname === '/why-foodadda') ||
-                    (link.path === '/why-foodadda' && location.pathname === '/features'))
+                    (link.path === '/features' && location.pathname === '/why-bhojan-bandhu') ||
+                    (link.path === '/why-bhojan-bandhu' && location.pathname === '/features'))
                 return (
                   <button
                     key={link.label}

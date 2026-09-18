@@ -19,9 +19,9 @@ export default function PromoShowcase({ darkMode }) {
       id="interactive-demo"
       className="py-20 sm:py-28 relative overflow-hidden border-t border-slate-800/40 dark:border-white/[0.06]"
       ref={containerRef}
-      aria-label="FoodAdda POS Interactive Demo Section"
+      aria-label="Bhojan Bandhu POS Interactive Demo Section"
     >
-      {/* Ambient background glows tailored to FoodAdda red identity */}
+      {/* Ambient background glows tailored to Bhojan Bandhu red identity */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[850px] h-[450px] sm:h-[600px] bg-[#C52033]/15 blur-[140px] rounded-full pointer-events-none" />
       <div className="absolute inset-0 bg-grid-pattern pointer-events-none opacity-30" />
 
@@ -49,7 +49,7 @@ export default function PromoShowcase({ darkMode }) {
               darkMode ? 'text-white' : 'text-slate-900'
             }`}
           >
-            See FoodAdda in Action —{' '}
+            See Bhojan Bandhu in Action —{' '}
             <span className="gradient-text">Engineered for Rapid POS Billing</span>
           </motion.h2>
 
@@ -91,7 +91,7 @@ export default function PromoShowcase({ darkMode }) {
             {/* 1. Realistic Laptop Frame PNG with transparent screen cutout */}
             <img
               src="/laptop-mockup.png"
-              alt="FoodAdda POS on Laptop Device"
+              alt="Bhojan Bandhu POS on Laptop Device"
               className="absolute inset-0 w-full h-full object-contain pointer-events-none z-20"
             />
 
@@ -112,12 +112,12 @@ export default function PromoShowcase({ darkMode }) {
               }}
             >
               <video
-                src="/foodadda_pos_animated_promo_1080p.mp4"
+                src="/bhojanbandhu_pos_animated_promo_1080p.mp4"
                 autoPlay
                 loop
                 muted
                 playsInline
-                aria-label="FoodAdda POS Live Demonstration Video"
+                aria-label="Bhojan Bandhu POS Live Demonstration Video"
                 className="w-full h-full object-fill pointer-events-none block"
               />
 
@@ -134,7 +134,7 @@ export default function PromoShowcase({ darkMode }) {
             </div>
           </motion.div>
 
-          {/* Ambient red accent underglow tailored to FoodAdda theme */}
+          {/* Ambient red accent underglow tailored to Bhojan Bandhu theme */}
           <div className="w-[65%] sm:w-[50%] h-4 sm:h-6 bg-[#C52033]/30 blur-2xl -mt-6 rounded-[50%] pointer-events-none" />
 
           {/* Highlights Below Laptop */}

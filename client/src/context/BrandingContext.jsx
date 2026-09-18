@@ -4,7 +4,7 @@ import defaultLogo from '../assets/logo.png'
 
 const BrandingContext = createContext({
   logo: defaultLogo,
-  brandName: 'FoodAdda',
+  brandName: 'Bhojan Bandhu',
   tagline: '',
   faviconUrl: '',
   branding: null,
@@ -14,7 +14,7 @@ const BrandingContext = createContext({
 export function BrandingProvider({ children }) {
   const [branding, setBranding] = useState(null)
   const [logo, setLogo] = useState(defaultLogo)
-  const [brandName, setBrandName] = useState('FoodAdda')
+  const [brandName, setBrandName] = useState('Bhojan Bandhu')
   const [tagline, setTagline] = useState('')
   const [faviconUrl, setFaviconUrl] = useState('')
   const [loading, setLoading] = useState(true)

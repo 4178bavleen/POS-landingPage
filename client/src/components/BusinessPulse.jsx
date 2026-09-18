@@ -102,7 +102,7 @@ export default function BusinessPulse({ darkMode }) {
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
                 </div>
                 <span className="text-[10px] font-mono text-slate-400">
-                  foodadda-cloud-dashboard.vibrantick.com
+                  BhojanBandhu-cloud-dashboard.com
                 </span>
                 <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-500">
                   LIVE
@@ -112,7 +112,7 @@ export default function BusinessPulse({ darkMode }) {
               {/* Dashboard Image */}
               <motion.img
                 src={dashboardMockup}
-                alt="FoodAdda Multi-Branch SaaS Management Dashboard by Vibrantick"
+                alt="BhojanBandhu Multi-Branch SaaS Management Dashboard"
                 className="w-full h-auto rounded-xl object-contain border border-slate-800/30 dark:border-white/[0.04]"
                 whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.3 }}

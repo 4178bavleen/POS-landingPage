@@ -55,7 +55,7 @@ export default function Hero({ darkMode }) {
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full gradient-badge mb-6">
               <Sparkles size={14} className="text-[#C52033]" />
               <span className="text-xs font-semibold tracking-wide text-[#C52033] uppercase">
-                FoodAdda by Vibrantick Infotech Solutions
+                Bhojan Bandhu 
               </span>
               <span className={`text-xs ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
                 · Enterprise SaaS
@@ -74,7 +74,7 @@ export default function Hero({ darkMode }) {
             <p className={`text-sm sm:text-base max-w-xl mb-7 font-normal leading-relaxed ${
               darkMode ? 'text-slate-400' : 'text-slate-600'
             }`}>
-              Built by <strong>Vibrantick Infotech Solutions</strong>. FoodAdda delivers multi-tenant restaurant management for franchises, standalone dining, and cloud kitchens—unifying real-time billing, Kitchen Display Systems (KDS), automated thermal printing, and direct <strong>Zomato & Swiggy</strong> webhook ingestion.
+              Bhojan Bandhu delivers multi-tenant restaurant management for franchises, standalone dining, and cloud kitchens—unifying real-time billing, Kitchen Display Systems (KDS), automated thermal printing, and direct <strong>Zomato & Swiggy</strong> webhook ingestion.
             </p>
 
             {/* CTAs */}
@@ -126,7 +126,7 @@ export default function Hero({ darkMode }) {
               {/* Hardware Mockup Image */}
               <motion.img
                 src={posMockup}
-                alt="FoodAdda POS Terminal & Hardware System by Vibrantick"
+                alt="Bhojan Bandhu POS Terminal & Hardware System"
                 className="w-full h-auto object-contain drop-shadow-[0_20px_45px_rgba(0,0,0,0.65)] relative z-10"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}

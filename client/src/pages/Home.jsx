@@ -52,7 +52,7 @@ export default function Home({ darkMode }) {
                     darkMode ? 'text-white' : 'text-slate-900'
                   }`}
                 >
-                  Explore the full FoodAdda{' '}
+                  Explore the full Bhojan Bandhu{' '}
                   <span className="gradient-text">Feature Suite</span>
                 </h2>
 

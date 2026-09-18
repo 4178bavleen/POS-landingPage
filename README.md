@@ -86,7 +86,7 @@ cd server && npm install
 
 ```bash
 # Edit server/.env
-MONGODB_URI=mongodb://localhost:27017/foodadda
+MONGODB_URI=mongodb://localhost:27017/bhojanbandhu
 PORT=5000
 NODE_ENV=development
 CORS_ORIGIN=http://localhost:5174

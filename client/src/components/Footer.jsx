@@ -30,8 +30,8 @@ const footerLinks = {
     { label: 'Security Audit', to: '/#architecture' },
   ],
   Company: [
-    { label: 'About Vibrantick', to: '/#newsletter' },
-    { label: 'FoodAdda Overview', to: '/' },
+   
+    { label: 'Bhojan Bandhu Overview', to: '/' },
     { label: 'Franchise Partner Program', to: '/#newsletter' },
     { label: 'Support Hotline', to: 'tel:18002008899', isExternal: true },
     { label: 'Contact Sales', to: '/#newsletter' },
@@ -63,17 +63,15 @@ export default function Footer({ darkMode }) {
               />
               <div className="flex flex-col">
                 <span className={`text-xl font-bold tracking-tight leading-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
-                  {brandName === 'FoodAdda' ? (
+                  {brandName === 'Bhojan Bandhu' ? (
                     <>
-                      Food<span className="text-[#C52033]">Adda</span>
+                      Bhojan <span className="text-[#C52033]">Bandhu</span>
                     </>
                   ) : (
                     brandName
                   )}
                 </span>
-                <span className="text-[10px] font-semibold text-slate-400 tracking-wider uppercase">
-                  A Product by Vibrantick Infotech Solutions
-                </span>
+            
               </div>
             </Link>
 
@@ -85,13 +83,13 @@ export default function Footer({ darkMode }) {
 
             <div className="space-y-2 mb-6 text-xs sm:text-sm">
               <a
-                href="mailto:support@foodadda.in"
+                href="mailto:support@bhojanbandhu.in"
                 className={`flex items-center gap-2 hover:text-[#C52033] transition-colors ${
                   darkMode ? 'text-slate-400' : 'text-slate-600'
                 }`}
               >
                 <Mail size={14} className="text-[#C52033]" />
-                <span>support@foodadda.in</span>
+                <span>support@bhojanbandhu.in</span>
               </a>
 
               <a
@@ -104,10 +102,7 @@ export default function Footer({ darkMode }) {
                 <span>1800-200-8899 (Enterprise Support, 24/7)</span>
               </a>
 
-              <p className={`flex items-center gap-2 ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
-                <Building2 size={14} className="text-[#C52033]" />
-                <span>Vibrantick Infotech Solutions Pvt Ltd</span>
-              </p>
+              
             </div>
 
             {/* Social links */}
@@ -171,9 +166,7 @@ export default function Footer({ darkMode }) {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-slate-800/40 dark:border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-          <p className={darkMode ? 'text-slate-500' : 'text-slate-500'}>
-            © {new Date().getFullYear()} Vibrantick Infotech Solutions Pvt Ltd. All rights reserved.
-          </p>
+        
 
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
