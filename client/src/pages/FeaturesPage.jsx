@@ -50,8 +50,8 @@ const deepFeatures = [
       'Multi-tender simultaneous checkout',
     ],
     highlight: '< 3s per ticket',
-    color: 'text-[#C52033]',
-    bg: 'bg-[#C52033]/15',
+    color: 'text-[#068aca]',
+    bg: 'bg-[#068aca]/15',
   },
   {
     category: 'kitchen',
@@ -66,8 +66,8 @@ const deepFeatures = [
       'Average ticket prep time telemetry',
     ],
     highlight: 'Zero latency sync',
-    color: 'text-amber-500',
-    bg: 'bg-amber-500/15',
+    color: 'text-[#0996d4]',
+    bg: 'bg-[#0996d4]/15',
   },
   {
     category: 'aggregators',
@@ -82,8 +82,8 @@ const deepFeatures = [
       'Consolidated payout and commission reconciliation',
     ],
     highlight: '0% missed orders',
-    color: 'text-orange-500',
-    bg: 'bg-orange-500/15',
+    color: 'text-[#067bba]',
+    bg: 'bg-[#067bba]/15',
   },
   {
     category: 'inventory',
@@ -114,8 +114,8 @@ const deepFeatures = [
       'Automatic conflict-free cloud sync',
     ],
     highlight: '100% uptime',
-    color: 'text-purple-500',
-    bg: 'bg-purple-500/15',
+    color: 'text-[#043a68]',
+    bg: 'bg-[#043a68]/15',
   },
   {
     category: 'billing',
@@ -130,8 +130,8 @@ const deepFeatures = [
       'Custom header, footer, GSTIN & QR code logos',
     ],
     highlight: 'Direct ESC/POS driver',
-    color: 'text-[#C52033]',
-    bg: 'bg-[#C52033]/15',
+    color: 'text-[#068aca]',
+    bg: 'bg-[#068aca]/15',
   },
   {
     category: 'franchise',
@@ -146,8 +146,8 @@ const deepFeatures = [
       'Consolidated multi-branch P&L dashboard',
     ],
     highlight: 'Enterprise tier',
-    color: 'text-blue-500',
-    bg: 'bg-blue-500/15',
+    color: 'text-[#068aca]',
+    bg: 'bg-[#068aca]/15',
   },
   {
     category: 'billing',
@@ -162,8 +162,8 @@ const deepFeatures = [
       'Increased table turn rate by up to 25%',
     ],
     highlight: '25% faster table turn',
-    color: 'text-teal-500',
-    bg: 'bg-teal-500/15',
+    color: 'text-[#0996d4]',
+    bg: 'bg-[#0996d4]/15',
   },
   {
     category: 'franchise',
@@ -178,8 +178,8 @@ const deepFeatures = [
       'End-of-day Z-Report sent via email & WhatsApp',
     ],
     highlight: 'Live executive view',
-    color: 'text-rose-500',
-    bg: 'bg-rose-500/15',
+    color: 'text-[#0565a1]',
+    bg: 'bg-[#0565a1]/15',
   },
   {
     category: 'billing',
@@ -194,8 +194,8 @@ const deepFeatures = [
       'One-click export compatible with Tally and Zoho Books',
     ],
     highlight: 'Tax compliant',
-    color: 'text-indigo-500',
-    bg: 'bg-indigo-500/15',
+    color: 'text-[#055086]',
+    bg: 'bg-[#055086]/15',
   },
   {
     category: 'aggregators',
@@ -210,8 +210,8 @@ const deepFeatures = [
       'Driver assignment and dispatch tracking',
     ],
     highlight: 'Unified pipeline',
-    color: 'text-cyan-500',
-    bg: 'bg-cyan-500/15',
+    color: 'text-[#067bba]',
+    bg: 'bg-[#067bba]/15',
   },
 ]
 
@@ -259,8 +259,8 @@ export default function FeaturesPage({ darkMode }) {
   return (
     <div className="pt-28 pb-20 relative overflow-hidden">
       {/* Background Decorative Ambient */}
-      <div className="absolute top-20 right-1/4 w-[600px] h-[600px] bg-[#C52033]/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-1/2 left-10 w-[450px] h-[450px] bg-sky-500/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-20 right-1/4 w-[600px] h-[600px] bg-[#068aca]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-10 w-[450px] h-[450px] bg-[#84bed9]/15 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute inset-0 bg-grid-pattern pointer-events-none opacity-40" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -268,21 +268,21 @@ export default function FeaturesPage({ darkMode }) {
         <div className="flex items-center gap-2 text-xs font-medium mb-6">
           <Link
             to="/"
-            className={`transition-colors hover:text-[#C52033] ${
+            className={`transition-colors hover:text-[#068aca] ${
               darkMode ? 'text-slate-400' : 'text-slate-500'
             }`}
           >
             Home
           </Link>
           <ChevronRight size={13} className={darkMode ? 'text-slate-600' : 'text-slate-400'} />
-          <span className="text-[#C52033] font-semibold">Features</span>
+          <span className="text-[#068aca] font-semibold">Features</span>
         </div>
 
         {/* Hero Header */}
         <div className="max-w-4xl mx-auto text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full gradient-badge mb-4">
-            <Sparkles size={14} className="text-[#C52033]" />
-            <span className="text-xs font-semibold tracking-wide text-[#C52033] uppercase">
+            <Sparkles size={14} className="text-[#068aca]" />
+            <span className="text-xs font-semibold tracking-wide text-[#068aca] uppercase">
               Full Platform Capabilities
             </span>
           </div>
@@ -308,12 +308,12 @@ export default function FeaturesPage({ darkMode }) {
           <div
             className={`grid grid-cols-2 md:grid-cols-4 gap-4 p-5 rounded-2xl border ${
               darkMode
-                ? 'bg-[#101216]/80 border-white/10 text-white'
+                ? 'bg-dark-surface/80 border-dark-border text-dark-text'
                 : 'bg-white border-slate-200 text-slate-900 shadow-sm'
             }`}
           >
             <div>
-              <div className="text-2xl sm:text-3xl font-extrabold text-[#C52033]">&lt; 3 Sec</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-[#068aca]">&lt; 3 Sec</div>
               <div className={`text-xs mt-1 ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
                 Average Bill Checkout
               </div>
@@ -325,13 +325,13 @@ export default function FeaturesPage({ darkMode }) {
               </div>
             </div>
             <div>
-              <div className="text-2xl sm:text-3xl font-extrabold text-orange-500">0%</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-[#067bba]">0%</div>
               <div className={`text-xs mt-1 ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
                 Online Order Drop Rate
               </div>
             </div>
             <div>
-              <div className="text-2xl sm:text-3xl font-extrabold text-sky-500">Unlimited</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-[#0996d4]">Unlimited</div>
               <div className={`text-xs mt-1 ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
                 Franchise & Branch Scale
               </div>
@@ -366,7 +366,7 @@ export default function FeaturesPage({ darkMode }) {
                 onClick={() => setSelectedCategory(cat.id)}
                 className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                   selectedCategory === cat.id
-                    ? 'bg-[#C52033] text-white shadow-md shadow-[#C52033]/25 scale-105'
+                    ? 'bg-[#068aca] text-white shadow-md shadow-[#068aca]/25 scale-105'
                     : darkMode
                     ? 'bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white border border-white/5'
                     : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/80'
@@ -390,7 +390,7 @@ export default function FeaturesPage({ darkMode }) {
                 transition={{ duration: 0.35, delay: idx * 0.05 }}
                 className={`p-6 sm:p-7 rounded-2xl border flex flex-col justify-between transition-all hover:translate-y-[-2px] ${
                   darkMode
-                    ? 'bg-[#101216] border-white/10 hover:border-white/20'
+                    ? 'bg-dark-surface border-dark-border hover:border-brand-primary-light/30'
                     : 'bg-white border-slate-200 shadow-sm hover:shadow-md'
                 }`}
               >
@@ -429,7 +429,7 @@ export default function FeaturesPage({ darkMode }) {
                   <div className="space-y-2 mb-6">
                     {item.bullets.map((bullet) => (
                       <div key={bullet} className="flex items-start gap-2 text-xs">
-                        <CheckCircle2 size={13} className="text-[#C52033] shrink-0 mt-0.5" />
+                        <CheckCircle2 size={13} className="text-[#068aca] shrink-0 mt-0.5" />
                         <span className={darkMode ? 'text-slate-300' : 'text-slate-700'}>
                           {bullet}
                         </span>
@@ -457,7 +457,7 @@ export default function FeaturesPage({ darkMode }) {
         <div className="mb-24">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full gradient-badge mb-3">
-              <span className="text-xs font-semibold tracking-wide text-[#C52033] uppercase">
+              <span className="text-xs font-semibold tracking-wide text-[#068aca] uppercase">
                 Direct Benchmark
               </span>
             </div>
@@ -475,7 +475,7 @@ export default function FeaturesPage({ darkMode }) {
 
           <div
             className={`rounded-2xl border overflow-hidden ${
-              darkMode ? 'bg-[#101216] border-white/10' : 'bg-white border-slate-200 shadow-sm'
+              darkMode ? 'bg-dark-surface border-dark-border' : 'bg-white border-slate-200 shadow-sm'
             }`}
           >
             <div className="overflow-x-auto">
@@ -522,7 +522,7 @@ export default function FeaturesPage({ darkMode }) {
                       </td>
                       <td className="py-4 px-6">
                         <div className="flex items-start gap-2">
-                          <XCircle size={16} className="text-rose-500/80 shrink-0 mt-0.5" />
+                          <XCircle size={16} className="text-[#5886a7] shrink-0 mt-0.5" />
                           <span className={darkMode ? 'text-slate-400' : 'text-slate-500'}>
                             {row.legacy}
                           </span>
@@ -540,11 +540,11 @@ export default function FeaturesPage({ darkMode }) {
         <div
           className={`p-8 sm:p-14 rounded-3xl border text-center relative overflow-hidden ${
             darkMode
-              ? 'bg-gradient-to-b from-[#141720] to-[#0A0C0E] border-white/10 shadow-2xl'
+              ? 'bg-gradient-to-b from-dark-surface-raised to-dark-canvas border-dark-border shadow-2xl shadow-black/50'
               : 'bg-gradient-to-b from-slate-50 to-white border-slate-200 shadow-lg'
           }`}
         >
-          <div className="absolute top-0 right-1/3 w-80 h-80 bg-[#C52033]/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-1/3 w-80 h-80 bg-[#068aca]/15 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 max-w-2xl mx-auto">
             <h2

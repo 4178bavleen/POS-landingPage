@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import CustomCursor from './components/CustomCursor'
+import CollectChatWidget from './components/CollectChatWidget'
 import ScrollProgress from './components/ScrollProgress'
 import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
@@ -18,7 +19,7 @@ function POSLoginRedirect() {
 }
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true)
+  const [darkMode, setDarkMode] = useState(false)
 
   useEffect(() => {
     const root = document.documentElement
@@ -31,8 +32,8 @@ function App() {
     }
   }, [darkMode])
 
-  const bgColor = darkMode ? '#08090a' : '#f8fafc'
-  const textColor = darkMode ? '#f1f5f9' : '#0f172a'
+  const bgColor = darkMode ? '#061a2b' : '#f1f6f9'
+  const textColor = darkMode ? '#edf6fa' : '#043a68'
 
   return (
     <BrandingProvider>
@@ -42,6 +43,7 @@ function App() {
       >
         <ScrollToTop />
         <ScrollProgress />
+        <CollectChatWidget />
         <CustomCursor darkMode={darkMode} />
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
 

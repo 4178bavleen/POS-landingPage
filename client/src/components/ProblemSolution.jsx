@@ -32,17 +32,17 @@ export default function ProblemSolution({ darkMode }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#C52033] mb-2 block">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#068aca] mb-2 block">
             The Operational Shift
           </span>
           <h2 className={`text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight mb-3 ${
             darkMode ? 'text-white' : 'text-slate-900'
           }`}>
             Why 10,000+ restaurants switched from{' '}
-            <span className="gradient-text">legacy systems to foodAdda</span>
+            <span className="gradient-text">legacy systems to Bhojan Bandhu</span>
           </h2>
           <p className={`text-base sm:text-lg ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
-            Traditional POS systems were built 15 years ago for desktop computers. foodAdda is modern cloud infrastructure built for high-velocity dining.
+            Traditional POS systems were built 15 years ago for desktop computers. Bhojan Bandhu is modern cloud infrastructure built for high-velocity dining.
           </p>
         </div>
 
@@ -55,26 +55,26 @@ export default function ProblemSolution({ darkMode }) {
             transition={{ duration: 0.6 }}
             className={`p-8 rounded-3xl border transition-all ${
               darkMode
-                ? 'bg-[#101216]/60 border-red-950/40'
-                : 'bg-red-50/50 border-red-200/70'
+                ? 'bg-[#055086]/30 border-[#5886a7]/40'
+                : 'bg-[#f1f6f9] border-[#84bed9]/70'
             }`}
           >
-            <div className="flex items-center gap-3 mb-6 pb-4 border-b border-red-500/10">
-              <div className="p-2 rounded-xl bg-red-500/10 text-red-500">
+            <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[#84bed9]/25">
+              <div className="p-2 rounded-xl bg-[#84bed9]/20 text-[#5886a7]">
                 <AlertTriangle size={20} />
               </div>
               <div>
                 <h3 className={`text-lg font-bold tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                   The Legacy Way
                 </h3>
-                <p className="text-xs text-red-500 font-medium">Clunky, error-prone & slow</p>
+                <p className="text-xs text-[#5886a7] font-medium">Clunky, error-prone & slow</p>
               </div>
             </div>
 
             <div className="space-y-4">
               {oldWay.map((point) => (
                 <div key={point} className="flex items-start gap-3">
-                  <XCircle size={17} className="text-red-500/70 shrink-0 mt-0.5" />
+                  <XCircle size={17} className="text-[#5886a7] shrink-0 mt-0.5" />
                   <span className={`text-sm leading-relaxed ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
                     {point}
                   </span>
@@ -83,19 +83,19 @@ export default function ProblemSolution({ darkMode }) {
             </div>
           </motion.div>
 
-          {/* The foodAdda Way (Speed) */}
+          {/* The Bhojan Bandhu Way (Speed) */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.15 }}
             className={`p-8 rounded-3xl border shadow-2xl relative overflow-hidden ${
               darkMode
-                ? 'bg-gradient-to-b from-[#141720] to-[#0D0F14] border-[#C52033]/50 shadow-[#C52033]/10 ring-1 ring-[#C52033]/40'
-                : 'bg-white border-[#C52033]/40 shadow-slate-200/80 ring-1 ring-[#C52033]/20'
+                ? 'bg-gradient-to-b from-dark-surface-raised to-dark-surface border-brand-primary/40 shadow-brand-accent/10 ring-1 ring-brand-primary/30'
+                : 'bg-white border-[#068aca]/40 shadow-slate-200/80 ring-1 ring-[#068aca]/20'
             }`}
           >
             {/* Top Right Tag */}
-            <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#C52033] text-white text-[10px] font-bold tracking-wider uppercase">
+            <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#068aca] text-white text-[10px] font-bold tracking-wider uppercase">
               Speed & Precision
             </div>
 
@@ -105,7 +105,7 @@ export default function ProblemSolution({ darkMode }) {
               </div>
               <div>
                 <h3 className={`text-lg font-bold tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
-                  The foodAdda Way
+                  The Bhojan Bandhu Way
                 </h3>
                 <p className="text-xs text-emerald-500 font-medium">Real-time automation & zero wastage</p>
               </div>

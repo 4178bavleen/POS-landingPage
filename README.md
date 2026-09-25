@@ -1,8 +1,8 @@
-# foodAdda POS — Landing Page
+# Bhojan Bandhu POS — Landing Page
 
 > **India's #1 Restaurant POS Platform** — A production-ready SaaS landing page built with the MERN stack.
 
-![foodAdda Logo](./logo.png)
+![Bhojan Bandhu Logo](./logo.png)
 
 ---
 
@@ -26,7 +26,7 @@
 POS-landingPage/
 ├── client/                     # React frontend (Vite)
 │   ├── src/
-│   │   ├── assets/logo.png     # foodAdda logo
+│   │   ├── assets/logo.png     # Bhojan Bandhu logo
 │   │   ├── components/
 │   │   │   ├── Navbar.jsx      # Responsive sticky navbar
 │   │   │   ├── Hero.jsx        # Hero with dashboard mockup
@@ -57,7 +57,7 @@ POS-landingPage/
 │   └── package.json
 │
 ├── package.json                # Root (concurrently)
-├── logo.png                    # foodAdda logo
+├── logo.png                    # Bhojan Bandhu logo
 └── README.md
 ```
 
@@ -183,4 +183,4 @@ In production, the Express server serves the React build from `client/dist/` and
 
 ---
 
-*Made with ❤️ for Indian Restaurants — foodAdda POS*
+*Made with ❤️ for Indian Restaurants — Bhojan Bandhu POS*

@@ -39,7 +39,7 @@ export default function Hero({ darkMode }) {
     <section ref={containerRef} className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
       {/* Background grid pattern & radial glow */}
       <div className="absolute inset-0 bg-grid-pattern pointer-events-none opacity-60" />
-      <div className="absolute top-1/4 right-10 w-[550px] h-[550px] bg-[#C52033]/15 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/4 right-10 w-[550px] h-[550px] bg-[#068aca]/15 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* 2-Column Left / Right Layout */}
@@ -53,8 +53,8 @@ export default function Hero({ darkMode }) {
           >
             {/* Top Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full gradient-badge mb-6">
-              <Sparkles size={14} className="text-[#C52033]" />
-              <span className="text-xs font-semibold tracking-wide text-[#C52033] uppercase">
+              <Sparkles size={14} className="text-[#068aca]" />
+              <span className="text-xs font-semibold tracking-wide text-[#068aca] uppercase">
                 Bhojan Bandhu 
               </span>
               <span className={`text-xs ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
@@ -91,7 +91,7 @@ export default function Hero({ darkMode }) {
                 onClick={() => scrollTo('#architecture')}
                 className="btn-secondary-glow px-5 py-3 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 cursor-pointer"
               >
-                <Building2 size={15} className="text-[#C52033]" />
+                <Building2 size={15} className="text-[#068aca]" />
                 <span>View Architecture</span>
               </button>
             </div>
@@ -101,7 +101,7 @@ export default function Hero({ darkMode }) {
               <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 text-xs font-medium">
                 {highlights.map((item) => (
                   <div key={item} className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-[#C52033] shrink-0" />
+                    <CheckCircle2 size={14} className="text-[#068aca] shrink-0" />
                     <span className={darkMode ? 'text-slate-300' : 'text-slate-700'}>{item}</span>
                   </div>
                 ))}
@@ -121,7 +121,7 @@ export default function Hero({ darkMode }) {
               className="relative p-2 sm:p-4"
             >
               {/* Backlight Ambient Glow */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-[#C52033]/20 blur-[80px] rounded-full pointer-events-none" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-[#068aca]/20 blur-[80px] rounded-full pointer-events-none" />
 
               {/* Hardware Mockup Image */}
               <motion.img
@@ -138,11 +138,11 @@ export default function Hero({ darkMode }) {
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                 className={`absolute -top-4 -left-3 sm:top-2 sm:-left-6 z-20 flex items-center gap-2.5 px-3.5 py-2 rounded-2xl shadow-xl border backdrop-blur-xl ${
                   darkMode
-                    ? 'bg-[#14171F]/95 border-white/10 text-white shadow-black/70'
+                    ? 'bg-[#0f3856]/95 border-white/10 text-white shadow-black/70'
                     : 'bg-white/95 border-slate-200 text-slate-900 shadow-slate-300/80'
                 }`}
               >
-                <div className="w-7 h-7 rounded-lg bg-[#C52033]/15 text-[#C52033] flex items-center justify-center shrink-0">
+                <div className="w-7 h-7 rounded-lg bg-[#068aca]/15 text-[#068aca] flex items-center justify-center shrink-0">
                   <Receipt size={15} />
                 </div>
                 <div>
@@ -162,7 +162,7 @@ export default function Hero({ darkMode }) {
                 transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
                 className={`absolute -top-4 -right-3 sm:top-4 sm:-right-4 z-20 flex items-center gap-2.5 px-3.5 py-2 rounded-2xl shadow-xl border backdrop-blur-xl ${
                   darkMode
-                    ? 'bg-[#14171F]/95 border-white/10 text-white shadow-black/70'
+                    ? 'bg-[#0f3856]/95 border-white/10 text-white shadow-black/70'
                     : 'bg-white/95 border-slate-200 text-slate-900 shadow-slate-300/80'
                 }`}
               >
@@ -186,11 +186,11 @@ export default function Hero({ darkMode }) {
                 transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
                 className={`hidden sm:flex absolute -bottom-4 -left-2 z-20 items-center gap-2.5 px-3.5 py-2 rounded-2xl shadow-xl border backdrop-blur-xl ${
                   darkMode
-                    ? 'bg-[#14171F]/95 border-white/10 text-white shadow-black/70'
+                    ? 'bg-[#0f3856]/95 border-white/10 text-white shadow-black/70'
                     : 'bg-white/95 border-slate-200 text-slate-900 shadow-slate-300/80'
                 }`}
               >
-                <div className="w-7 h-7 rounded-lg bg-[#C52033]/15 text-[#C52033] flex items-center justify-center shrink-0">
+                <div className="w-7 h-7 rounded-lg bg-[#068aca]/15 text-[#068aca] flex items-center justify-center shrink-0">
                   <ShieldCheck size={14} />
                 </div>
                 <div>

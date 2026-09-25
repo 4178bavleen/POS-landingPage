@@ -3,15 +3,15 @@ import { motion, useInView } from 'framer-motion'
 import { Check, X, Sparkles } from 'lucide-react'
 
 const comparisonMatrix = [
-  { feature: '100% Offline Mode (Never Stops Billing)', foodAdda: true, legacy: false, generic: false },
-  { feature: 'Real-Time Auto-KOT to Kitchen Stations', foodAdda: true, legacy: true, generic: false },
-  { feature: 'Direct 1-Click Swiggy & Zomato Sync', foodAdda: true, legacy: false, generic: false },
-  { feature: 'Recipe-Level Ingredient Auto-Deductions', foodAdda: true, legacy: false, generic: false },
-  { feature: 'Waiter Captain Mobile App (Android/iOS)', foodAdda: true, legacy: false, generic: false },
-  { feature: 'QR Code Table Dining & Digital Payments', foodAdda: true, legacy: false, generic: false },
-  { feature: 'Multi-Store Central Brand Dashboard', foodAdda: true, legacy: false, generic: false },
-  { feature: 'Zero Proprietary Hardware Lock-In', foodAdda: true, legacy: false, generic: true },
-  { feature: '24/7 Phone & Priority WhatsApp Support', foodAdda: true, legacy: false, generic: false },
+  { feature: '100% Offline Mode (Never Stops Billing)', 'Bhojan Bandhu': true, legacy: false, generic: false },
+  { feature: 'Real-Time Auto-KOT to Kitchen Stations', 'Bhojan Bandhu': true, legacy: true, generic: false },
+  { feature: 'Direct 1-Click Swiggy & Zomato Sync', 'Bhojan Bandhu': true, legacy: false, generic: false },
+  { feature: 'Recipe-Level Ingredient Auto-Deductions', 'Bhojan Bandhu': true, legacy: false, generic: false },
+  { feature: 'Waiter Captain Mobile App (Android/iOS)', 'Bhojan Bandhu': true, legacy: false, generic: false },
+  { feature: 'QR Code Table Dining & Digital Payments', 'Bhojan Bandhu': true, legacy: false, generic: false },
+  { feature: 'Multi-Store Central Brand Dashboard', 'Bhojan Bandhu': true, legacy: false, generic: false },
+  { feature: 'Zero Proprietary Hardware Lock-In', 'Bhojan Bandhu': true, legacy: false, generic: true },
+  { feature: '24/7 Phone & Priority WhatsApp Support', 'Bhojan Bandhu': true, legacy: false, generic: false },
 ]
 
 export default function Comparison({ darkMode }) {
@@ -24,8 +24,8 @@ export default function Comparison({ darkMode }) {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full gradient-badge mb-4">
-            <Sparkles size={14} className="text-[#C52033]" />
-            <span className="text-xs font-semibold tracking-wide text-[#C52033] uppercase">
+            <Sparkles size={14} className="text-[#068aca]" />
+            <span className="text-xs font-semibold tracking-wide text-[#068aca] uppercase">
               Feature Breakdown
             </span>
           </div>
@@ -33,12 +33,12 @@ export default function Comparison({ darkMode }) {
           <h2 className={`text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight mb-3 ${
             darkMode ? 'text-white' : 'text-slate-900'
           }`}>
-            How foodAdda compares with{' '}
+            How Bhojan Bandhu compares with{' '}
             <span className="gradient-text">legacy POS software</span>
           </h2>
 
           <p className={`text-base sm:text-lg ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
-            See why modern Indian restaurant chains and standalone food outlets choose foodAdda over outdated desktop setups.
+            See why modern Indian restaurant chains and standalone food outlets choose Bhojan Bandhu over outdated desktop setups.
           </p>
         </div>
 
@@ -47,8 +47,8 @@ export default function Comparison({ darkMode }) {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className={`saas-card overflow-hidden border-[#C52033]/30 ${
-            darkMode ? 'bg-[#101216]/95' : 'bg-white'
+          className={`saas-card overflow-hidden border-[#068aca]/30 ${
+            darkMode ? 'bg-dark-surface/95' : 'bg-white'
           }`}
         >
           <div className="overflow-x-auto">
@@ -60,8 +60,8 @@ export default function Comparison({ darkMode }) {
                   }`}>
                     Platform Capabilities
                   </th>
-                  <th className="p-4 sm:p-6 text-center bg-[#C52033]/15 text-[#C52033] font-extrabold text-sm sm:text-base border-x border-[#C52033]/30">
-                    foodAdda POS
+                  <th className="p-4 sm:p-6 text-center bg-[#068aca]/15 text-[#068aca] font-extrabold text-sm sm:text-base border-x border-[#068aca]/30">
+                    Bhojan Bandhu POS
                   </th>
                   <th className={`p-4 sm:p-6 text-center text-xs sm:text-sm font-semibold ${
                     darkMode ? 'text-slate-400' : 'text-slate-500'
@@ -89,9 +89,9 @@ export default function Comparison({ darkMode }) {
                       {row.feature}
                     </td>
 
-                    {/* foodAdda column */}
-                    <td className="p-4 sm:p-5 text-center bg-[#C52033]/5 border-x border-[#C52033]/20">
-                      <div className="inline-flex p-1 rounded-full bg-[#C52033]/15 text-[#C52033]">
+                    {/* Bhojan Bandhu column */}
+                    <td className="p-4 sm:p-5 text-center bg-[#068aca]/5 border-x border-[#068aca]/20">
+                      <div className="inline-flex p-1 rounded-full bg-[#068aca]/15 text-[#068aca]">
                         <Check size={16} strokeWidth={3} />
                       </div>
                     </td>

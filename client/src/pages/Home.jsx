@@ -31,18 +31,18 @@ export default function Home({ darkMode }) {
           <div
             className={`p-8 sm:p-12 rounded-3xl border relative overflow-hidden transition-all ${
               darkMode
-                ? 'bg-gradient-to-br from-[#13161F] via-[#0E1015] to-[#0A0C0E] border-white/10 shadow-2xl shadow-black/40'
-                : 'bg-gradient-to-br from-slate-50 via-white to-red-50/30 border-slate-200 shadow-xl'
+                ? 'bg-gradient-to-br from-dark-surface-raised via-dark-surface to-dark-canvas border-dark-border shadow-2xl shadow-black/50'
+                : 'bg-gradient-to-br from-slate-50 via-white to-[#f1f6f9] border-slate-200 shadow-xl'
             }`}
           >
             {/* Ambient Red Glow */}
-            <div className="absolute -right-20 -top-20 w-96 h-96 bg-[#C52033]/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -right-20 -top-20 w-96 h-96 bg-[#068aca]/15 rounded-full blur-3xl pointer-events-none" />
 
             <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
               <div className="max-w-2xl">
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full gradient-badge mb-4">
-                  <Sparkles size={14} className="text-[#C52033]" />
-                  <span className="text-xs font-semibold tracking-wide text-[#C52033] uppercase">
+                  <Sparkles size={14} className="text-[#068aca]" />
+                  <span className="text-xs font-semibold tracking-wide text-[#068aca] uppercase">
                     50+ Enterprise Capabilities
                   </span>
                 </div>
@@ -66,10 +66,10 @@ export default function Home({ darkMode }) {
 
                 <div className="flex flex-wrap gap-4 mt-6 text-xs font-medium">
                   <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full ${darkMode ? 'bg-white/5 text-slate-300' : 'bg-slate-100 text-slate-700'}`}>
-                    <Zap size={13} className="text-[#C52033]" /> 3-Sec Quick Billing
+                    <Zap size={13} className="text-[#068aca]" /> 3-Sec Quick Billing
                   </span>
                   <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full ${darkMode ? 'bg-white/5 text-slate-300' : 'bg-slate-100 text-slate-700'}`}>
-                    <Layers size={13} className="text-orange-500" /> Zomato & Swiggy Sync
+                    <Layers size={13} className="text-[#067bba]" /> Zomato & Swiggy Sync
                   </span>
                   <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full ${darkMode ? 'bg-white/5 text-slate-300' : 'bg-slate-100 text-slate-700'}`}>
                     <ShieldCheck size={13} className="text-emerald-500" /> 100% Offline Mode

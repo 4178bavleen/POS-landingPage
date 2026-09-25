@@ -21,8 +21,8 @@ export default function PromoShowcase({ darkMode }) {
       ref={containerRef}
       aria-label="Bhojan Bandhu POS Interactive Demo Section"
     >
-      {/* Ambient background glows tailored to Bhojan Bandhu red identity */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[850px] h-[450px] sm:h-[600px] bg-[#C52033]/15 blur-[140px] rounded-full pointer-events-none" />
+      {/* Ambient background glows tailored to Bhojan Bandhu blue identity */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[850px] h-[450px] sm:h-[600px] bg-[#068aca]/15 blur-[140px] rounded-full pointer-events-none" />
       <div className="absolute inset-0 bg-grid-pattern pointer-events-none opacity-30" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -35,8 +35,8 @@ export default function PromoShowcase({ darkMode }) {
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full gradient-badge mb-4"
           >
-            <Flame size={14} className="text-[#C52033]" />
-            <span className="text-xs font-semibold tracking-wide text-[#C52033] uppercase">
+            <Flame size={14} className="text-[#068aca]" />
+            <span className="text-xs font-semibold tracking-wide text-[#068aca] uppercase">
               Live Software Preview
             </span>
           </motion.div>
@@ -134,14 +134,14 @@ export default function PromoShowcase({ darkMode }) {
             </div>
           </motion.div>
 
-          {/* Ambient red accent underglow tailored to Bhojan Bandhu theme */}
-          <div className="w-[65%] sm:w-[50%] h-4 sm:h-6 bg-[#C52033]/30 blur-2xl -mt-6 rounded-[50%] pointer-events-none" />
+          {/* Ambient blue accent underglow tailored to Bhojan Bandhu theme */}
+          <div className="w-[65%] sm:w-[50%] h-4 sm:h-6 bg-[#068aca]/30 blur-2xl -mt-6 rounded-[50%] pointer-events-none" />
 
           {/* Highlights Below Laptop */}
           <div className="w-full mt-10 sm:mt-12 pt-4 border-t border-slate-800/40 dark:border-white/[0.06] grid grid-cols-2 md:grid-cols-4 gap-3 text-left">
             {promoHighlights.map((hl) => (
               <div key={hl} className="flex items-center gap-2 text-[11px] sm:text-xs">
-                <CheckCircle2 size={14} className="text-[#C52033] shrink-0" />
+                <CheckCircle2 size={14} className="text-[#068aca] shrink-0" />
                 <span className={darkMode ? 'text-slate-300' : 'text-slate-700'}>{hl}</span>
               </div>
             ))}

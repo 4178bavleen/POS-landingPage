@@ -25,14 +25,14 @@ export default function RoiCalculator({ darkMode }) {
   return (
     <section className="py-24 relative overflow-hidden border-t border-slate-800/40 dark:border-white/[0.06]">
       {/* Background soft glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-96 bg-[#C52033]/10 blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-96 bg-[#068aca]/10 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full gradient-badge mb-4">
-            <Sparkles size={14} className="text-[#C52033]" />
-            <span className="text-xs font-semibold tracking-wide text-[#C52033] uppercase">
+            <Sparkles size={14} className="text-[#068aca]" />
+            <span className="text-xs font-semibold tracking-wide text-[#068aca] uppercase">
               Interactive ROI Estimator
             </span>
           </div>
@@ -45,13 +45,13 @@ export default function RoiCalculator({ darkMode }) {
           </h2>
 
           <p className={`text-base sm:text-lg ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
-            See how much revenue foodAdda preserves by eliminating manual billing bottlenecks and raw inventory leakage.
+            See how much revenue Bhojan Bandhu preserves by eliminating manual billing bottlenecks and raw inventory leakage.
           </p>
         </div>
 
         {/* Calculator Main Box */}
-        <div className={`saas-card p-6 sm:p-10 max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-[#C52033]/40 ${
-          darkMode ? 'bg-[#101216]/95' : 'bg-white'
+        <div className={`saas-card p-6 sm:p-10 max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-[#068aca]/40 ${
+          darkMode ? 'bg-dark-surface/95' : 'bg-white'
         }`}>
           {/* Sliders (Left 7 Cols) */}
           <div className="lg:col-span-7 space-y-8">
@@ -61,7 +61,7 @@ export default function RoiCalculator({ darkMode }) {
                 <label className={`text-xs font-bold uppercase tracking-wider ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
                   Daily Dine-in & Delivery Orders
                 </label>
-                <span className="text-base font-extrabold text-[#C52033]">
+                <span className="text-base font-extrabold text-[#068aca]">
                   {dailyOrders} orders / day
                 </span>
               </div>
@@ -72,7 +72,7 @@ export default function RoiCalculator({ darkMode }) {
                 step="10"
                 value={dailyOrders}
                 onChange={(e) => setDailyOrders(Number(e.target.value))}
-                className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-[#C52033]"
+                className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-[#068aca]"
               />
               <div className="flex justify-between text-[11px] text-slate-500 mt-1">
                 <span>30 (Small Cafe)</span>
@@ -87,7 +87,7 @@ export default function RoiCalculator({ darkMode }) {
                 <label className={`text-xs font-bold uppercase tracking-wider ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
                   Average Order Value (AOV)
                 </label>
-                <span className="text-base font-extrabold text-[#C52033]">
+                <span className="text-base font-extrabold text-[#068aca]">
                   ₹{avgOrderValue} per bill
                 </span>
               </div>
@@ -98,7 +98,7 @@ export default function RoiCalculator({ darkMode }) {
                 step="50"
                 value={avgOrderValue}
                 onChange={(e) => setAvgOrderValue(Number(e.target.value))}
-                className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-[#C52033]"
+                className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-[#068aca]"
               />
               <div className="flex justify-between text-[11px] text-slate-500 mt-1">
                 <span>₹100 (Chai & QSR)</span>
@@ -119,12 +119,12 @@ export default function RoiCalculator({ darkMode }) {
           </div>
 
           {/* Results Summary (Right 5 Cols) */}
-          <div className="lg:col-span-5 p-6 rounded-2xl bg-gradient-to-b from-[#C52033]/15 via-rose-500/5 to-transparent border border-[#C52033]/30 flex flex-col justify-between h-full">
+          <div className="lg:col-span-5 p-6 rounded-2xl bg-gradient-to-b from-[#068aca]/15 via-[#84bed9]/10 to-transparent border border-[#068aca]/30 flex flex-col justify-between h-full">
             <div>
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#C52033] block mb-1">
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#068aca] block mb-1">
                 Estimated Monthly Savings
               </span>
-              <div className="text-3xl sm:text-4xl font-black text-[#C52033] mb-6 flex items-baseline gap-1">
+              <div className="text-3xl sm:text-4xl font-black text-[#068aca] mb-6 flex items-baseline gap-1">
                 <span>₹{totalMonthlySavings.toLocaleString()}</span>
                 <span className="text-xs font-medium text-slate-400">/ mo</span>
               </div>

@@ -36,8 +36,8 @@ export default function Architecture({ darkMode }) {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full gradient-badge mb-4">
-            <Sparkles size={14} className="text-[#C52033]" />
-            <span className="text-xs font-semibold tracking-wide text-[#C52033] uppercase">
+            <Sparkles size={14} className="text-[#068aca]" />
+            <span className="text-xs font-semibold tracking-wide text-[#068aca] uppercase">
               System Architecture
             </span>
           </div>
@@ -65,12 +65,12 @@ export default function Architecture({ darkMode }) {
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 className={`saas-card p-7 flex flex-col justify-between relative ${
-                  i === 0 ? 'border-[#C52033]/40 shadow-xl shadow-[#C52033]/5' : ''
+                  i === 0 ? 'border-[#068aca]/40 shadow-xl shadow-[#068aca]/5' : ''
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-5">
-                    <div className="p-3 rounded-2xl bg-[#C52033]/15 text-[#C52033]">
+                    <div className="p-3 rounded-2xl bg-[#068aca]/15 text-[#068aca]">
                       <Icon size={22} />
                     </div>
                     <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-800/40 dark:bg-white/[0.04] text-slate-400 border border-slate-700/50 dark:border-white/[0.06]">
@@ -94,7 +94,7 @@ export default function Architecture({ darkMode }) {
                 <div className="pt-4 border-t border-slate-800/60 dark:border-white/[0.06] space-y-2">
                   {node.highlights.map((hl) => (
                     <div key={hl} className="flex items-center gap-2 text-xs">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#C52033]" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#068aca]" />
                       <span className={darkMode ? 'text-slate-300' : 'text-slate-700 font-medium'}>{hl}</span>
                     </div>
                   ))}

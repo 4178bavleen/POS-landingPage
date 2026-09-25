@@ -27,8 +27,8 @@ export default function BusinessPulse({ darkMode }) {
             className="lg:col-span-5 flex flex-col items-start text-left"
           >
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full gradient-badge mb-4">
-              <Sparkles size={14} className="text-[#C52033]" />
-              <span className="text-xs font-semibold tracking-wide text-[#C52033] uppercase">
+              <Sparkles size={14} className="text-[#068aca]" />
+              <span className="text-xs font-semibold tracking-wide text-[#068aca] uppercase">
                 The Business Pulse
               </span>
             </div>
@@ -55,11 +55,11 @@ export default function BusinessPulse({ darkMode }) {
                     key={m.label}
                     className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold border transition-all ${
                       darkMode
-                        ? 'bg-[#14171F]/80 border-white/10 text-slate-300 hover:border-[#C52033]/40'
-                        : 'bg-white border-slate-200 text-slate-700 shadow-sm hover:border-[#C52033]/40'
+                        ? 'bg-dark-surface-raised/80 border-dark-border text-dark-muted hover:border-brand-primary-light/40'
+                        : 'bg-white border-slate-200 text-slate-700 shadow-sm hover:border-[#068aca]/40'
                     }`}
                   >
-                    <Icon size={14} className="text-[#C52033]" />
+                    <Icon size={14} className="text-[#068aca]" />
                     <span>{m.label}</span>
                   </div>
                 )
@@ -86,20 +86,20 @@ export default function BusinessPulse({ darkMode }) {
             className="lg:col-span-7 relative"
           >
             {/* Ambient backlight glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#C52033]/15 blur-[90px] rounded-full pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#068aca]/15 blur-[90px] rounded-full pointer-events-none" />
 
             {/* Dashboard Frame */}
             <div className={`relative rounded-2xl p-2 sm:p-3 border shadow-2xl backdrop-blur-xl ${
               darkMode
-                ? 'bg-[#101216]/90 border-white/10 shadow-black/80'
+                ? 'bg-dark-surface/90 border-dark-border shadow-black/60'
                 : 'bg-white/90 border-slate-200 shadow-slate-300/70'
             }`}>
               {/* Window Controls Bar */}
               <div className="flex items-center justify-between px-2.5 pb-2 mb-1 border-b border-slate-800/40 dark:border-white/[0.06]">
                 <div className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#043a68]/80" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#84bed9]/80" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#0996d4]/80" />
                 </div>
                 <span className="text-[10px] font-mono text-slate-400">
                   BhojanBandhu-cloud-dashboard.com

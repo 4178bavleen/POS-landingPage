@@ -87,8 +87,8 @@ export default function Newsletter({ darkMode }) {
 
   const inputClass = `w-full px-4 py-3 rounded-xl text-sm border focus:outline-none transition-all ${
     darkMode
-      ? 'bg-[#08090A] border-white/10 text-white placeholder-slate-500 focus:border-[#C52033]'
-      : 'bg-white border-slate-300 text-slate-900 placeholder-slate-400 focus:border-[#C52033]'
+      ? 'bg-dark-canvas border-dark-border text-dark-text placeholder-dark-muted/70 focus:border-brand-primary-light'
+      : 'bg-white border-slate-300 text-slate-900 placeholder-slate-400 focus:border-[#068aca]'
   }`
 
   return (
@@ -101,18 +101,18 @@ export default function Newsletter({ darkMode }) {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className={`saas-card p-8 sm:p-14 relative overflow-hidden border-[#C52033]/30 ${
-            darkMode ? 'bg-gradient-to-b from-[#14171E] to-[#0A0C0F]' : 'bg-gradient-to-b from-white to-slate-50'
+          className={`saas-card p-8 sm:p-14 relative overflow-hidden border-[#068aca]/30 ${
+            darkMode ? 'bg-gradient-to-b from-dark-surface-raised to-dark-canvas' : 'bg-gradient-to-b from-white to-slate-50'
           }`}
         >
           {/* Subtle Ambient Radial Backlight */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-40 bg-[#C52033]/20 blur-3xl pointer-events-none" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-40 bg-[#068aca]/20 blur-3xl pointer-events-none" />
 
           {/* Badge */}
           <div className="text-center mb-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full gradient-badge">
-              <CalendarCheck size={14} className="text-[#C52033]" />
-              <span className="text-xs font-semibold tracking-wide text-[#C52033] uppercase">
+              <CalendarCheck size={14} className="text-[#068aca]" />
+              <span className="text-xs font-semibold tracking-wide text-[#068aca] uppercase">
                 Book a Free Platform Demo
               </span>
             </div>
@@ -297,7 +297,7 @@ export default function Newsletter({ darkMode }) {
               </div>
 
               {errorMsg && (
-                <p className="text-xs text-[#C52033] text-left px-1 font-medium">
+                <p className="text-xs text-[#068aca] text-left px-1 font-medium">
                   {errorMsg}
                 </p>
               )}

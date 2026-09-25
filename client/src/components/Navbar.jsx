@@ -82,7 +82,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
             className="flex items-center gap-3 group cursor-pointer"
           >
             <div className="relative flex items-center">
-              <div className="absolute -inset-1 bg-[#C52033]/30 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute -inset-1 bg-[#068aca]/30 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
               <img
                 src={brandLogo || logo}
                 alt={brandName}
@@ -90,6 +90,8 @@ export default function Navbar({ darkMode, setDarkMode }) {
               />
             </div>
           </Link>
+
+
 
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex items-center gap-1">
@@ -108,7 +110,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
                   onClick={() => handleNavClick(link)}
                   className={`px-3.5 py-1.5 text-xs sm:text-sm font-medium rounded-full transition-all duration-200 cursor-pointer ${
                     isPageActive
-                      ? 'bg-[#C52033]/15 text-[#C52033] border border-[#C52033]/30 font-semibold shadow-sm'
+                      ? 'bg-[#068aca]/15 text-[#068aca] border border-[#068aca]/30 font-semibold shadow-sm'
                       : isHomeActive && link.isPage
                       ? darkMode
                         ? 'text-white font-semibold'
@@ -149,7 +151,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
               Pricing
             </button>
 
-            <a
+            {/* <a
               href={`${POS_APP_URL}/login`}
               className={`text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-lg transition-colors ${
                 darkMode
@@ -158,7 +160,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
               }`}
             >
               Login
-            </a>
+            </a> */}
 
             <button
               onClick={() => handleActionClick('#newsletter')}
@@ -204,7 +206,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
             exit={{ opacity: 0, y: -10 }}
             className={`lg:hidden mx-4 mt-2 p-4 rounded-2xl border shadow-2xl backdrop-blur-2xl ${
               darkMode
-                ? 'bg-[#08090A]/95 border-white/10 text-white'
+                ? 'bg-dark-canvas/95 border-dark-border text-dark-text'
                 : 'bg-white/95 border-slate-200 text-slate-900'
             }`}
           >
@@ -222,7 +224,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
                     onClick={() => handleNavClick(link)}
                     className={`block w-full text-left px-3 py-2 text-sm font-medium rounded-lg cursor-pointer ${
                       isPageActive
-                        ? 'bg-[#C52033]/15 text-[#C52033] font-semibold border border-[#C52033]/30'
+                        ? 'bg-[#068aca]/15 text-[#068aca] font-semibold border border-[#068aca]/30'
                         : darkMode
                         ? 'text-slate-300 hover:text-white hover:bg-white/5'
                         : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100'

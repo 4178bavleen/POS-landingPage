@@ -64,7 +64,7 @@ export default function Stats({ darkMode }) {
                   }`}>
                     {stat.label}
                   </span>
-                  <div className="p-2 rounded-lg bg-[#C52033]/10 text-[#C52033]">
+                  <div className="p-2 rounded-lg bg-[#068aca]/10 text-[#068aca]">
                     <Icon size={18} />
                   </div>
                 </div>

@@ -72,11 +72,11 @@ export default function CustomCursor({ darkMode }) {
           opacity: 1,
         }}
         transition={{ duration: 0.2 }}
-        className={`fixed w-8 h-8 rounded-full border border-[#C52033]/60 flex items-center justify-center transition-colors ${
+        className={`fixed w-8 h-8 rounded-full border border-[#068aca]/60 flex items-center justify-center transition-colors ${
           cursorType === 'pointer'
-            ? 'bg-[#C52033]/15'
+            ? 'bg-[#068aca]/15'
             : cursorType === 'view'
-            ? 'bg-[#C52033]/90 text-white'
+            ? 'bg-[#068aca]/90 text-white'
             : 'bg-transparent'
         }`}
       >
@@ -98,7 +98,7 @@ export default function CustomCursor({ darkMode }) {
         animate={{
           scale: cursorType === 'pointer' ? 0.4 : 1,
         }}
-        className="fixed w-1.5 h-1.5 rounded-full bg-[#C52033]"
+        className="fixed w-1.5 h-1.5 rounded-full bg-[#068aca]"
       />
     </div>
   )

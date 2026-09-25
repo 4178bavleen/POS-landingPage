@@ -11,7 +11,7 @@ const testimonials = [
     rating: 5,
     highlight: 'Cut billing queue by 50%',
     review:
-      'foodAdda replaced our clunky old desktop system in just one afternoon. Our table turnaround time improved by 40% and our staff learned the interface in 10 minutes.',
+      'Bhojan Bandhu replaced our clunky old desktop system in just one afternoon. Our table turnaround time improved by 40% and our staff learned the interface in 10 minutes.',
   },
   {
     name: 'Priya Mehta',
@@ -31,7 +31,7 @@ const testimonials = [
     rating: 5,
     highlight: 'Single screen for Swiggy & Zomato',
     review:
-      'Handling high-volume lunch rushes across 6 virtual brands was chaos before foodAdda. The unified KOT routing and online aggregator sync saved us 2 dedicated operators.',
+      'Handling high-volume lunch rushes across 6 virtual brands was chaos before Bhojan Bandhu. The unified KOT routing and online aggregator sync saved us 2 dedicated operators.',
   },
   {
     name: 'Vikramjit Singh',
@@ -55,8 +55,8 @@ export default function Testimonials({ darkMode }) {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full gradient-badge mb-4">
-            <Sparkles size={14} className="text-[#C52033]" />
-            <span className="text-xs font-semibold tracking-wide text-[#C52033] uppercase">
+            <Sparkles size={14} className="text-[#068aca]" />
+            <span className="text-xs font-semibold tracking-wide text-[#068aca] uppercase">
               Proven Results
             </span>
           </div>
@@ -69,7 +69,7 @@ export default function Testimonials({ darkMode }) {
           </h2>
 
           <p className={`text-base sm:text-lg ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
-            Hear directly from the food entrepreneurs and franchise owners who run their daily operations on foodAdda.
+            Hear directly from the food entrepreneurs and franchise owners who run their daily operations on Bhojan Bandhu.
           </p>
         </div>
 
@@ -90,7 +90,7 @@ export default function Testimonials({ darkMode }) {
                       <Star key={s} size={14} className="text-amber-400 fill-amber-400" />
                     ))}
                   </div>
-                  <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-[#C52033]/10 text-[#C52033] border border-[#C52033]/20">
+                  <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-[#068aca]/10 text-[#068aca] border border-[#068aca]/20">
                     {t.highlight}
                   </span>
                 </div>
@@ -113,7 +113,7 @@ export default function Testimonials({ darkMode }) {
                     {t.name}
                   </h4>
                   <p className={`text-xs ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
-                    {t.outlet} · <span className="text-[#C52033] font-medium">{t.city}</span>
+                    {t.outlet} · <span className="text-[#068aca] font-medium">{t.city}</span>
                   </p>
                 </div>
               </div>

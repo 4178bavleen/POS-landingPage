@@ -88,14 +88,14 @@ export default function Pricing({ darkMode }) {
   return (
     <section id="pricing" className="py-24 relative overflow-hidden" ref={ref}>
       {/* Ambient background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#C52033]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#068aca]/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full gradient-badge mb-4">
-            <Sparkles size={14} className="text-[#C52033]" />
-            <span className="text-xs font-semibold tracking-wide text-[#C52033] uppercase">
+            <Sparkles size={14} className="text-[#068aca]" />
+            <span className="text-xs font-semibold tracking-wide text-[#068aca] uppercase">
               Transparent Pricing Plans
             </span>
           </div>
@@ -171,12 +171,12 @@ export default function Pricing({ darkMode }) {
                   transition={{ duration: 0.4, delay: idx * 0.1 }}
                   className={`saas-card rounded-2xl p-7 sm:p-8 flex flex-col justify-between relative transition-all duration-300 hover:scale-[1.02] ${
                     isPopular
-                      ? 'border-[#C52033] shadow-2xl shadow-[#C52033]/15 ring-2 ring-[#C52033]/50'
+                      ? 'border-[#068aca] shadow-2xl shadow-[#068aca]/15 ring-2 ring-[#068aca]/50'
                       : 'border-border'
-                  } ${darkMode ? 'bg-[#101216]' : 'bg-white'}`}
+                  } ${darkMode ? 'bg-dark-surface' : 'bg-white'}`}
                 >
                   {isPopular && (
-                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-1 rounded-full bg-[#C52033] text-white text-[10.5px] font-bold tracking-wider uppercase shadow-md flex items-center gap-1">
+                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-1 rounded-full bg-[#068aca] text-white text-[10.5px] font-bold tracking-wider uppercase shadow-md flex items-center gap-1">
                       <Star size={12} fill="currentColor" />
                       <span>Most Popular</span>
                     </div>
@@ -193,7 +193,7 @@ export default function Pricing({ darkMode }) {
                         {plan.name}
                       </h3>
                       {isPopular ? (
-                        <span className="p-1 rounded-lg bg-[#C52033]/10 text-[#C52033]">
+                        <span className="p-1 rounded-lg bg-[#068aca]/10 text-[#068aca]">
                           <Zap size={16} />
                         </span>
                       ) : (
@@ -214,7 +214,7 @@ export default function Pricing({ darkMode }) {
                     {/* Pricing */}
                     <div className="mb-6 pb-6 border-b border-border">
                       <div className="flex items-baseline gap-1.5">
-                        <span className="text-3xl sm:text-4xl font-black tracking-tight text-[#C52033]">
+                        <span className="text-3xl sm:text-4xl font-black tracking-tight text-[#068aca]">
                           ₹{formattedPrice}
                         </span>
                         <span
@@ -241,7 +241,7 @@ export default function Pricing({ darkMode }) {
                       </p>
                       {featureList.slice(0, 6).map((feat, fIdx) => (
                         <div key={fIdx} className="flex items-start gap-2.5">
-                          <div className="p-0.5 rounded-full bg-[#C52033]/15 text-[#C52033] shrink-0 mt-0.5">
+                          <div className="p-0.5 rounded-full bg-[#068aca]/15 text-[#068aca] shrink-0 mt-0.5">
                             <Check size={12} strokeWidth={3} />
                           </div>
                           <span
@@ -284,7 +284,7 @@ export default function Pricing({ darkMode }) {
             <span>Need custom hardware bundles, thermal printers, or enterprise franchise rollout? </span>
             <button
               onClick={() => scrollTo('#newsletter')}
-              className="text-[#C52033] font-semibold hover:underline cursor-pointer"
+              className="text-[#068aca] font-semibold hover:underline cursor-pointer"
             >
               Talk to our team →
             </button>

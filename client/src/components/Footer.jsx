@@ -65,7 +65,7 @@ export default function Footer({ darkMode }) {
                 <span className={`text-xl font-bold tracking-tight leading-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                   {brandName === 'Bhojan Bandhu' ? (
                     <>
-                      Bhojan <span className="text-[#C52033]">Bandhu</span>
+                      Bhojan <span className="text-[#068aca]">Bandhu</span>
                     </>
                   ) : (
                     brandName
@@ -84,21 +84,21 @@ export default function Footer({ darkMode }) {
             <div className="space-y-2 mb-6 text-xs sm:text-sm">
               <a
                 href="mailto:support@bhojanbandhu.in"
-                className={`flex items-center gap-2 hover:text-[#C52033] transition-colors ${
+                className={`flex items-center gap-2 hover:text-[#068aca] transition-colors ${
                   darkMode ? 'text-slate-400' : 'text-slate-600'
                 }`}
               >
-                <Mail size={14} className="text-[#C52033]" />
+                <Mail size={14} className="text-[#068aca]" />
                 <span>support@bhojanbandhu.in</span>
               </a>
 
               <a
                 href="tel:18002008899"
-                className={`flex items-center gap-2 hover:text-[#C52033] transition-colors ${
+                className={`flex items-center gap-2 hover:text-[#068aca] transition-colors ${
                   darkMode ? 'text-slate-400' : 'text-slate-600'
                 }`}
               >
-                <Phone size={14} className="text-[#C52033]" />
+                <Phone size={14} className="text-[#068aca]" />
                 <span>1800-200-8899 (Enterprise Support, 24/7)</span>
               </a>
 
@@ -141,7 +141,7 @@ export default function Footer({ darkMode }) {
                     {link.isExternal ? (
                       <a
                         href={link.to}
-                        className={`text-xs transition-colors hover:text-[#C52033] ${
+                        className={`text-xs transition-colors hover:text-[#068aca] ${
                           darkMode ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-slate-900'
                         }`}
                       >
@@ -150,7 +150,7 @@ export default function Footer({ darkMode }) {
                     ) : (
                       <Link
                         to={link.to}
-                        className={`text-xs transition-colors hover:text-[#C52033] ${
+                        className={`text-xs transition-colors hover:text-[#068aca] ${
                           darkMode ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-slate-900'
                         }`}
                       >
@@ -176,9 +176,9 @@ export default function Footer({ darkMode }) {
           </div>
 
           <div className="flex gap-4">
-            <a href="#" className={`hover:text-[#C52033] ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>Privacy Policy</a>
-            <a href="#" className={`hover:text-[#C52033] ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>Terms & SLA</a>
-            <a href="#" className={`hover:text-[#C52033] ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>Security Vault</a>
+            <a href="#" className={`hover:text-[#068aca] ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>Privacy Policy</a>
+            <a href="#" className={`hover:text-[#068aca] ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>Terms & SLA</a>
+            <a href="#" className={`hover:text-[#068aca] ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>Security Vault</a>
           </div>
         </div>
       </div>

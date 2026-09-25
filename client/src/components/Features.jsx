@@ -29,8 +29,8 @@ export default function Features({ darkMode }) {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full gradient-badge mb-4">
-            <Sparkles size={14} className="text-[#C52033]" />
-            <span className="text-xs font-semibold tracking-wide text-[#C52033] uppercase">
+            <Sparkles size={14} className="text-[#068aca]" />
+            <span className="text-xs font-semibold tracking-wide text-[#068aca] uppercase">
               Engineered for Speed
             </span>
           </div>
@@ -55,14 +55,14 @@ export default function Features({ darkMode }) {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
             className={`md:col-span-7 saas-card p-7 sm:p-8 flex flex-col justify-between relative overflow-hidden group ${
-              darkMode ? 'bg-gradient-to-br from-[#141720] via-[#101216] to-[#0A0C0E]' : 'bg-white'
+              darkMode ? 'bg-gradient-to-br from-dark-surface-raised via-dark-surface to-dark-canvas' : 'bg-white'
             }`}
           >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#C52033]/10 rounded-full blur-3xl pointer-events-none group-hover:bg-[#C52033]/20 transition-all duration-500" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#068aca]/10 rounded-full blur-3xl pointer-events-none group-hover:bg-[#068aca]/20 transition-all duration-500" />
 
             <div>
               <div className="flex items-center justify-between mb-6">
-                <div className="p-3 rounded-2xl bg-[#C52033]/15 text-[#C52033]">
+                <div className="p-3 rounded-2xl bg-[#068aca]/15 text-[#068aca]">
                   <Receipt size={24} />
                 </div>
                 <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-500 border border-emerald-500/20">
@@ -91,7 +91,7 @@ export default function Features({ darkMode }) {
                   Table 04 · Paneer Tikka (x2), Masala Chai (x3)
                 </span>
               </div>
-              <span className="font-extrabold text-[#C52033]">₹580 · Paid</span>
+              <span className="font-extrabold text-[#068aca]">₹580 · Paid</span>
             </div>
           </motion.div>
 
@@ -101,12 +101,12 @@ export default function Features({ darkMode }) {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
             className={`md:col-span-5 saas-card p-7 sm:p-8 flex flex-col justify-between relative overflow-hidden group ${
-              darkMode ? 'bg-[#101216]' : 'bg-white'
+              darkMode ? 'bg-dark-surface' : 'bg-white'
             }`}
           >
             <div>
               <div className="flex items-center justify-between mb-6">
-                <div className="p-3 rounded-2xl bg-orange-500/15 text-orange-500">
+                <div className="p-3 rounded-2xl bg-[#84bed9]/20 text-[#067bba]">
                   <Truck size={24} />
                 </div>
                 <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-slate-800/60 dark:bg-white/[0.05] text-slate-400 border border-slate-700/40 dark:border-white/[0.06]">
@@ -127,7 +127,7 @@ export default function Features({ darkMode }) {
               </p>
             </div>
 
-            <div className="mt-6 flex items-center justify-between text-xs font-semibold px-4 py-2.5 rounded-xl bg-orange-500/10 text-orange-500 border border-orange-500/20">
+            <div className="mt-6 flex items-center justify-between text-xs font-semibold px-4 py-2.5 rounded-xl bg-[#84bed9]/15 text-[#0565a1] border border-[#84bed9]/40 dark:bg-[#043a68]/30 dark:text-[#84bed9]">
               <span>Auto-Accept Mode Active</span>
               <span className="text-emerald-500 font-bold">0% Order Rejections</span>
             </div>
@@ -141,7 +141,7 @@ export default function Features({ darkMode }) {
             className="md:col-span-6 saas-card p-7 flex flex-col justify-between"
           >
             <div>
-              <div className="p-3 rounded-2xl bg-[#C52033]/15 text-[#C52033] w-fit mb-5">
+              <div className="p-3 rounded-2xl bg-[#068aca]/15 text-[#068aca] w-fit mb-5">
                 <Layers size={22} />
               </div>
 
@@ -160,7 +160,7 @@ export default function Features({ darkMode }) {
 
             <div className="mt-6 pt-4 border-t border-slate-800/60 dark:border-white/[0.06] flex items-center justify-between text-xs">
               <span className={darkMode ? 'text-slate-400' : 'text-slate-500'}>Low-Stock WhatsApp Alerts:</span>
-              <span className="text-[#C52033] font-bold">Enabled</span>
+              <span className="text-[#068aca] font-bold">Enabled</span>
             </div>
           </motion.div>
 

@@ -43,7 +43,7 @@ export default function HowItWorks({ darkMode }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#C52033] mb-2 block">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#068aca] mb-2 block">
             Frictionless Setup
           </span>
           <h2 className={`text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight mb-3 ${
@@ -53,7 +53,7 @@ export default function HowItWorks({ darkMode }) {
             <span className="gradient-text">less than 15 minutes</span>
           </h2>
           <p className={`text-base sm:text-lg ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
-            No expensive IT team or hardware technicians needed. foodAdda runs seamlessly on any tablet, laptop, or dedicated POS terminal.
+            No expensive IT team or hardware technicians needed. Bhojan Bandhu runs seamlessly on any tablet, laptop, or dedicated POS terminal.
           </p>
         </div>
 
@@ -70,12 +70,12 @@ export default function HowItWorks({ darkMode }) {
                 className="saas-card p-6 flex flex-col justify-between relative overflow-hidden group"
               >
                 {/* Large Background Step Number */}
-                <div className="text-5xl font-black opacity-10 select-none absolute top-4 right-4 group-hover:text-[#C52033] group-hover:opacity-25 transition-all">
+                <div className="text-5xl font-black opacity-10 select-none absolute top-4 right-4 group-hover:text-[#068aca] group-hover:opacity-25 transition-all">
                   {step.step}
                 </div>
 
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-[#C52033]/10 text-[#C52033] flex items-center justify-center mb-6">
+                  <div className="w-10 h-10 rounded-xl bg-[#068aca]/10 text-[#068aca] flex items-center justify-center mb-6">
                     <Icon size={20} />
                   </div>
 

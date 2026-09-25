@@ -4,19 +4,19 @@ import { ChevronDown, Sparkles } from 'lucide-react'
 
 const faqs = [
   {
-    q: 'Can foodAdda operate without an active internet connection?',
+    q: 'Can Bhojan Bandhu operate without an active internet connection?',
     a: 'Yes, 100%. If your broadband fails, billing, table orders, and thermal KOT prints continue working locally in offline mode. Once connectivity returns, all data automatically syncs back to your cloud database with zero data loss.',
   },
   {
     q: 'Do I need to purchase specific proprietary hardware?',
-    a: 'Not at all. foodAdda runs smoothly on standard Android tablets (7" or 10"), iPads, Windows PCs, laptops, and all standard USB/Bluetooth/Ethernet thermal receipt printers (Epson, TVS, NGX, Star, etc.).',
+    a: 'Not at all. Bhojan Bandhu runs smoothly on standard Android tablets (7" or 10"), iPads, Windows PCs, laptops, and all standard USB/Bluetooth/Ethernet thermal receipt printers (Epson, TVS, NGX, Star, etc.).',
   },
   {
     q: 'Is GST billing and compliance supported?',
-    a: 'Yes. foodAdda automatically generates GST-compliant bills with customizable CGST/SGST/IGST tax slabs, HSN/SAC codes, invoice numbering formats, and ready-to-export GSTR monthly reports.',
+    a: 'Yes. Bhojan Bandhu automatically generates GST-compliant bills with customizable CGST/SGST/IGST tax slabs, HSN/SAC codes, invoice numbering formats, and ready-to-export GSTR monthly reports.',
   },
   {
-    q: 'How does foodAdda handle Swiggy and Zomato integrations?',
+    q: 'How does Bhojan Bandhu handle Swiggy and Zomato integrations?',
     a: 'Our direct aggregator sync feeds incoming Swiggy and Zomato orders straight into your live kitchen queue. You can toggle item stock, adjust menus, and manage delivery rider handoffs from one screen.',
   },
   {
@@ -46,7 +46,7 @@ function FAQItem({ faq, index, darkMode }) {
         <motion.div
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.25 }}
-          className="text-[#C52033] shrink-0"
+          className="text-[#068aca] shrink-0"
         >
           <ChevronDown size={18} />
         </motion.div>
@@ -82,8 +82,8 @@ export default function FAQ({ darkMode }) {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full gradient-badge mb-4">
-            <Sparkles size={14} className="text-[#C52033]" />
-            <span className="text-xs font-semibold tracking-wide text-[#C52033] uppercase">
+            <Sparkles size={14} className="text-[#068aca]" />
+            <span className="text-xs font-semibold tracking-wide text-[#068aca] uppercase">
               Got Questions?
             </span>
           </div>
@@ -96,7 +96,7 @@ export default function FAQ({ darkMode }) {
           </h2>
 
           <p className={`text-base sm:text-lg ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
-            Everything you need to know about foodAdda POS implementation, hardware support, and billing.
+            Everything you need to know about Bhojan Bandhu POS implementation, hardware support, and billing.
           </p>
         </div>
 
