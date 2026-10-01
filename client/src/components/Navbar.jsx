@@ -294,6 +294,13 @@ export default function Navbar({ darkMode, setDarkMode }) {
             {/* Desktop Right Action Buttons */}
             <div className="hidden md:flex items-center gap-3">
               <button
+                onClick={() => handleActionClick('#pricing')}
+                className="btn-secondary-glow text-xs sm:text-sm font-semibold px-4 py-2 rounded-full flex items-center gap-1.5 cursor-pointer"
+              >
+                <Zap size={14} />
+                <span>Start 14-day Free Trial</span>
+              </button>
+              <button
                 onClick={() => handleActionClick('#newsletter')}
                 className="btn-primary-glow text-xs sm:text-sm font-semibold px-4 py-2 rounded-full flex items-center gap-1.5 cursor-pointer shadow-md"
               >
@@ -451,6 +458,13 @@ export default function Navbar({ darkMode, setDarkMode }) {
                   >
                     POS Login
                   </a>
+                  <button
+                    onClick={() => handleActionClick('#pricing')}
+                    className="btn-secondary-glow w-full justify-center text-sm py-2.5 rounded-xl flex items-center gap-2 cursor-pointer"
+                  >
+                    <Zap size={15} />
+                    <span>Start 14-day Free Trial</span>
+                  </button>
                   <button
                     onClick={() => handleActionClick('#newsletter')}
                     className="btn-primary-glow w-full justify-center text-sm py-2.5 rounded-xl flex items-center gap-2 cursor-pointer"
