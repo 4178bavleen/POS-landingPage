@@ -257,7 +257,7 @@ export default function FeaturesPage({ darkMode }) {
       : deepFeatures.filter((f) => f.category === selectedCategory)
 
   return (
-    <div className="pt-28 pb-20 relative overflow-hidden">
+    <div className="pt-[calc(var(--header-h)+1.5rem)] pb-20 relative overflow-hidden">
       {/* Background Decorative Ambient */}
       <div className="absolute top-20 right-1/4 w-[600px] h-[600px] bg-[#068aca]/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute top-1/2 left-10 w-[450px] h-[450px] bg-[#84bed9]/15 rounded-full blur-[140px] pointer-events-none" />
