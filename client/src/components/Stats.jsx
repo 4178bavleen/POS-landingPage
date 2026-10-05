@@ -45,7 +45,7 @@ export default function Stats({ darkMode }) {
   const inView = useInView(ref, { once: true, margin: '-50px' })
 
   return (
-    <section ref={ref} className="py-16 border-y border-slate-800/40 dark:border-white/[0.06]">
+    <section ref={ref} className="py-12 sm:py-14 md:py-16 border-y border-slate-800/40 dark:border-white/[0.06]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {stats.map((stat, i) => {
@@ -56,7 +56,7 @@ export default function Stats({ darkMode }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="saas-card p-6 flex flex-col justify-between"
+                className="saas-card p-4 sm:p-6 flex flex-col justify-between"
               >
                 <div className="flex items-center justify-between mb-4">
                   <span className={`text-xs font-semibold uppercase tracking-wider ${

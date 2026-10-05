@@ -24,10 +24,10 @@ export default function Features({ darkMode }) {
   }
 
   return (
-    <section id="features" className="py-24 relative overflow-hidden" ref={ref}>
+    <section id="features" className="py-14 sm:py-16 md:py-20 relative overflow-hidden" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full gradient-badge mb-4">
             <Sparkles size={14} className="text-[#068aca]" />
             <span className="text-xs font-semibold tracking-wide text-[#068aca] uppercase">
@@ -54,7 +54,7 @@ export default function Features({ darkMode }) {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className={`md:col-span-7 saas-card p-7 sm:p-8 flex flex-col justify-between relative overflow-hidden group ${
+            className={`md:col-span-7 saas-card p-5 sm:p-7 md:p-8 flex flex-col justify-between relative overflow-hidden group ${
               darkMode ? 'bg-gradient-to-br from-dark-surface-raised via-dark-surface to-dark-canvas' : 'bg-white'
             }`}
           >
@@ -100,7 +100,7 @@ export default function Features({ darkMode }) {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className={`md:col-span-5 saas-card p-7 sm:p-8 flex flex-col justify-between relative overflow-hidden group ${
+            className={`md:col-span-5 saas-card p-5 sm:p-7 md:p-8 flex flex-col justify-between relative overflow-hidden group ${
               darkMode ? 'bg-dark-surface' : 'bg-white'
             }`}
           >
@@ -138,7 +138,7 @@ export default function Features({ darkMode }) {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="md:col-span-6 saas-card p-7 flex flex-col justify-between"
+            className="md:col-span-6 saas-card p-5 sm:p-7 flex flex-col justify-between"
           >
             <div>
               <div className="p-3 rounded-2xl bg-[#068aca]/15 text-[#068aca] w-fit mb-5">
@@ -169,7 +169,7 @@ export default function Features({ darkMode }) {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="md:col-span-6 saas-card p-7 flex flex-col justify-between"
+            className="md:col-span-6 saas-card p-5 sm:p-7 flex flex-col justify-between"
           >
             <div>
               <div className="p-3 rounded-2xl bg-emerald-500/15 text-emerald-500 w-fit mb-5">

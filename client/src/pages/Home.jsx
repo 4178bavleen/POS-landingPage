@@ -26,10 +26,10 @@ export default function Home({ darkMode }) {
       </div>
 
       {/* Feature Teaser & Gateway to Dedicated Features Page */}
-      <section className="py-12 relative overflow-hidden">
+      <section className="py-10 sm:py-12 md:py-14 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
-            className={`p-8 sm:p-12 rounded-3xl border relative overflow-hidden transition-all ${
+            className={`p-6 sm:p-9 md:p-12 rounded-3xl border relative overflow-hidden transition-all ${
               darkMode
                 ? 'bg-gradient-to-br from-dark-surface-raised via-dark-surface to-dark-canvas border-dark-border shadow-2xl shadow-black/50'
                 : 'bg-gradient-to-br from-slate-50 via-white to-[#f1f6f9] border-slate-200 shadow-xl'

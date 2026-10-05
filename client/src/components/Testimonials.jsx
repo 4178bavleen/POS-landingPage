@@ -67,10 +67,10 @@ export default function Testimonials({ darkMode }) {
   const others = testimonials.filter((_, i) => i !== featuredIndex)
 
   return (
-    <section id="testimonials" className="py-24 border-t border-slate-800/40 dark:border-white/[0.06] relative" ref={ref}>
+    <section id="testimonials" className="py-14 sm:py-16 md:py-20 border-t border-slate-800/40 dark:border-white/[0.06] relative" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full gradient-badge mb-4">
             <Sparkles size={14} className="text-[#068aca]" />
             <span className="text-xs font-semibold tracking-wide text-[#068aca] uppercase">
@@ -103,7 +103,7 @@ export default function Testimonials({ darkMode }) {
             {/* Ambient Glow */}
             <div className="absolute -inset-4 bg-gradient-to-br from-[#068aca]/10 via-transparent to-transparent rounded-3xl blur-2xl pointer-events-none" aria-hidden="true" />
 
-            <div className="relative saas-card p-8 sm:p-10 lg:p-12">
+            <div className="relative saas-card p-5 sm:p-8 lg:p-10">
               {/* Quote Icon */}
               <div className="absolute -top-4 -right-4 w-16 h-16 rounded-2xl bg-gradient-to-br from-[#068aca]/20 to-[#067bba]/10 border border-[#068aca]/20 flex items-center justify-center opacity-50">
                 <Quote size={28} className="text-[#068aca]" />

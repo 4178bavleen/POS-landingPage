@@ -38,7 +38,7 @@ export default function Hero({ darkMode }) {
   return (
     <section
       ref={containerRef}
-      className="relative pt-[calc(var(--header-h)+1.5rem)] pb-20 md:pb-28 overflow-hidden"
+      className="relative pt-[calc(var(--header-h)+1.5rem)] pb-12 sm:pb-16 md:pb-20 overflow-hidden"
     >
       {/* Background grid pattern & radial glow */}
       <div className="absolute inset-0 bg-grid-pattern pointer-events-none opacity-60" />
@@ -46,7 +46,7 @@ export default function Hero({ darkMode }) {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* 2-Column Left / Right Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-8 items-center">
           {/* ================= LEFT COLUMN: Content & CTAs (7 Cols) ================= */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}

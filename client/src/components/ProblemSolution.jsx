@@ -28,10 +28,10 @@ export default function ProblemSolution({ darkMode }) {
   }
 
   return (
-    <section ref={ref} className="py-24 relative overflow-hidden border-t border-slate-800/40 dark:border-white/[0.06]">
+    <section ref={ref} className="py-14 sm:py-16 md:py-20 relative overflow-hidden border-t border-slate-800/40 dark:border-white/[0.06]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-14">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#068aca] mb-2 block">
             The Operational Shift
           </span>
@@ -53,7 +53,7 @@ export default function ProblemSolution({ darkMode }) {
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className={`p-8 rounded-3xl border transition-all ${
+            className={`p-5 sm:p-8 rounded-3xl border transition-all ${
               darkMode
                 ? 'bg-[#055086]/30 border-[#5886a7]/40'
                 : 'bg-[#f1f6f9] border-[#84bed9]/70'
@@ -88,7 +88,7 @@ export default function ProblemSolution({ darkMode }) {
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className={`p-8 rounded-3xl border shadow-2xl relative overflow-hidden ${
+            className={`p-5 sm:p-8 rounded-3xl border shadow-2xl relative overflow-hidden ${
               darkMode
                 ? 'bg-gradient-to-b from-dark-surface-raised to-dark-surface border-brand-primary/40 shadow-brand-accent/10 ring-1 ring-brand-primary/30'
                 : 'bg-white border-[#068aca]/40 shadow-slate-200/80 ring-1 ring-[#068aca]/20'
