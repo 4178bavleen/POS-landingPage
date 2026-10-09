@@ -17,7 +17,7 @@ export default function PromoShowcase({ darkMode }) {
   return (
     <section
       id="interactive-demo"
-      className="py-20 sm:py-28 relative overflow-hidden border-t border-slate-800/40 dark:border-white/[0.06]"
+      className="py-14 sm:py-16 md:py-20 relative overflow-hidden border-t border-slate-800/40 dark:border-white/[0.06]"
       ref={containerRef}
       aria-label="Bhojan Bandhu POS Interactive Demo Section"
     >
@@ -28,7 +28,7 @@ export default function PromoShowcase({ darkMode }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 md:mb-12">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}

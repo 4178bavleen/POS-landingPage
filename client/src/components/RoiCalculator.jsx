@@ -23,13 +23,13 @@ export default function RoiCalculator({ darkMode }) {
   }
 
   return (
-    <section className="py-24 relative overflow-hidden border-t border-slate-800/40 dark:border-white/[0.06]">
+    <section className="py-14 sm:py-16 md:py-20 relative overflow-hidden border-t border-slate-800/40 dark:border-white/[0.06]">
       {/* Background soft glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-96 bg-[#068aca]/10 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full gradient-badge mb-4">
             <Sparkles size={14} className="text-[#068aca]" />
             <span className="text-xs font-semibold tracking-wide text-[#068aca] uppercase">
@@ -50,7 +50,7 @@ export default function RoiCalculator({ darkMode }) {
         </div>
 
         {/* Calculator Main Box */}
-        <div className={`saas-card p-6 sm:p-10 max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-[#068aca]/40 ${
+        <div className={`saas-card p-5 sm:p-8 md:p-10 max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-[#068aca]/40 ${
           darkMode ? 'bg-dark-surface/95' : 'bg-white'
         }`}>
           {/* Sliders (Left 7 Cols) */}

@@ -36,14 +36,17 @@ export default function Hero({ darkMode }) {
   const yOffset = useTransform(smoothProgress, [0, 1], [30, -30])
 
   return (
-    <section ref={containerRef} className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
+    <section
+      ref={containerRef}
+      className="relative pt-[calc(var(--header-h)+1.5rem)] pb-12 sm:pb-16 md:pb-20 overflow-hidden"
+    >
       {/* Background grid pattern & radial glow */}
       <div className="absolute inset-0 bg-grid-pattern pointer-events-none opacity-60" />
       <div className="absolute top-1/4 right-10 w-[550px] h-[550px] bg-[#068aca]/15 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* 2-Column Left / Right Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-8 items-center">
           {/* ================= LEFT COLUMN: Content & CTAs (7 Cols) ================= */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -118,7 +121,7 @@ export default function Hero({ darkMode }) {
           >
             <motion.div
               style={{ y: yOffset }}
-              className="relative p-2 sm:p-4"
+              className="relative px-1 pt-12 pb-12 sm:p-4"
             >
               {/* Backlight Ambient Glow */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-[#068aca]/20 blur-[80px] rounded-full pointer-events-none" />
@@ -136,7 +139,7 @@ export default function Hero({ darkMode }) {
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                className={`absolute -top-4 -left-3 sm:top-2 sm:-left-6 z-20 flex items-center gap-2.5 px-3.5 py-2 rounded-2xl shadow-xl border backdrop-blur-xl ${
+                className={`absolute top-0 left-1 sm:top-2 sm:-left-6 z-20 flex items-center gap-2.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-2xl shadow-xl border backdrop-blur-xl ${
                   darkMode
                     ? 'bg-[#0f3856]/95 border-white/10 text-white shadow-black/70'
                     : 'bg-white/95 border-slate-200 text-slate-900 shadow-slate-300/80'
@@ -160,7 +163,7 @@ export default function Hero({ darkMode }) {
               <motion.div
                 animate={{ y: [0, 6, 0] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-                className={`absolute -top-4 -right-3 sm:top-4 sm:-right-4 z-20 flex items-center gap-2.5 px-3.5 py-2 rounded-2xl shadow-xl border backdrop-blur-xl ${
+                className={`absolute bottom-0 right-1 sm:top-4 sm:bottom-auto sm:-right-4 z-20 flex items-center gap-2.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-2xl shadow-xl border backdrop-blur-xl ${
                   darkMode
                     ? 'bg-[#0f3856]/95 border-white/10 text-white shadow-black/70'
                     : 'bg-white/95 border-slate-200 text-slate-900 shadow-slate-300/80'

@@ -31,10 +31,10 @@ export default function Architecture({ darkMode }) {
   const inView = useInView(ref, { once: true, margin: '-60px' })
 
   return (
-    <section id="architecture" className="py-24 relative overflow-hidden border-t border-slate-800/40 dark:border-white/[0.06]" ref={ref}>
+    <section id="architecture" className="py-14 sm:py-16 md:py-20 relative overflow-hidden border-t border-slate-800/40 dark:border-white/[0.06]" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full gradient-badge mb-4">
             <Sparkles size={14} className="text-[#068aca]" />
             <span className="text-xs font-semibold tracking-wide text-[#068aca] uppercase">
@@ -64,7 +64,7 @@ export default function Architecture({ darkMode }) {
                 initial={{ opacity: 0, y: 24 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
-                className={`saas-card p-7 flex flex-col justify-between relative ${
+                className={`saas-card p-5 sm:p-7 flex flex-col justify-between relative ${
                   i === 0 ? 'border-[#068aca]/40 shadow-xl shadow-[#068aca]/5' : ''
                 }`}
               >

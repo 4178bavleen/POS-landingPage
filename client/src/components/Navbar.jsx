@@ -59,6 +59,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [mobileWhyOpen, setMobileWhyOpen] = useState(false)
   const dropdownRef = useRef(null)
+  const headerRef = useRef(null)
   const location = useLocation()
   const navigate = useNavigate()
 
@@ -66,6 +67,25 @@ export default function Navbar({ darkMode, setDarkMode }) {
     const onScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  // Publish header height so Hero/sections can offset themselves and
+  // anchor targets land below the fixed bar instead of under it.
+  useEffect(() => {
+    const el = headerRef.current
+    if (!el) return
+    const apply = () => {
+      const h = Math.ceil(el.getBoundingClientRect().height)
+      document.documentElement.style.setProperty('--header-h', `${h}px`)
+    }
+    apply()
+    const observer = new ResizeObserver(apply)
+    observer.observe(el)
+    window.addEventListener('resize', apply)
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('resize', apply)
+    }
   }, [])
 
   // Close dropdown on click outside
@@ -117,7 +137,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
     location.pathname === '/why-bhojan-bandhu'
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
       <OfferBanner />
       <nav
         className={`transition-all duration-300 ${

@@ -39,10 +39,10 @@ export default function HowItWorks({ darkMode }) {
   }
 
   return (
-    <section id="how-it-works" className="py-24 border-t border-slate-800/40 dark:border-white/[0.06] relative" ref={ref}>
+    <section id="how-it-works" className="py-14 sm:py-16 md:py-20 border-t border-slate-800/40 dark:border-white/[0.06] relative" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-14">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#068aca] mb-2 block">
             Frictionless Setup
           </span>
@@ -67,7 +67,7 @@ export default function HowItWorks({ darkMode }) {
                 initial={{ opacity: 0, y: 24 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="saas-card p-6 flex flex-col justify-between relative overflow-hidden group"
+                className="saas-card p-4 sm:p-6 flex flex-col justify-between relative overflow-hidden group"
               >
                 {/* Large Background Step Number */}
                 <div className="text-5xl font-black opacity-10 select-none absolute top-4 right-4 group-hover:text-[#068aca] group-hover:opacity-25 transition-all">

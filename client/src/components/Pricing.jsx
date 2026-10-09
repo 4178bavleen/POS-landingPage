@@ -86,7 +86,7 @@ export default function Pricing({ darkMode }) {
   }, [])
 
   return (
-    <section id="pricing" className="py-24 relative overflow-hidden" ref={ref}>
+    <section id="pricing" className="py-14 sm:py-16 md:py-20 relative overflow-hidden" ref={ref}>
       {/* Ambient background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#068aca]/10 rounded-full blur-[140px] pointer-events-none" />
 
@@ -169,7 +169,7 @@ export default function Pricing({ darkMode }) {
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.4, delay: idx * 0.1 }}
-                  className={`saas-card rounded-2xl p-7 sm:p-8 flex flex-col justify-between relative transition-all duration-300 hover:scale-[1.02] ${
+                  className={`saas-card rounded-2xl p-5 sm:p-7 md:p-8 flex flex-col justify-between relative transition-all duration-300 hover:scale-[1.02] ${
                     isPopular
                       ? 'border-[#068aca] shadow-2xl shadow-[#068aca]/15 ring-2 ring-[#068aca]/50'
                       : 'border-border'

@@ -102,7 +102,7 @@ export default function Newsletter({ darkMode }) {
   }`
 
   return (
-    <section id="newsletter" className="py-24 relative overflow-hidden" ref={ref}>
+    <section id="newsletter" className="py-14 sm:py-16 md:py-20 relative overflow-hidden" ref={ref}>
       {/* Anchor for both #newsletter and #book-demo */}
       <span id="book-demo" className="absolute -top-24 pointer-events-none" />
 
@@ -111,7 +111,7 @@ export default function Newsletter({ darkMode }) {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className={`saas-card p-8 sm:p-14 relative overflow-hidden border-[#068aca]/30 ${
+          className={`saas-card p-5 sm:p-8 md:p-12 relative overflow-hidden border-[#068aca]/30 ${
             darkMode ? 'bg-gradient-to-b from-dark-surface-raised to-dark-canvas' : 'bg-gradient-to-b from-white to-slate-50'
           }`}
         >
@@ -145,7 +145,7 @@ export default function Newsletter({ darkMode }) {
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="p-8 sm:p-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 max-w-lg mx-auto text-center"
+              className="p-6 sm:p-8 md:p-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 max-w-lg mx-auto text-center"
             >
               <CheckCircle2 size={46} className="text-emerald-500 mx-auto mb-3" />
               <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-slate-900'}`}>

@@ -26,6 +26,12 @@
 html {
   background-color: #f1f6f9;
   color-scheme: light;
+  /* Live-updated by Navbar via ResizeObserver; fallback covers mobile banner wrap */
+  --header-h: 148px;
+}
+
+[id] {
+  scroll-margin-top: calc(var(--header-h) + 16px);
 }
 
 body {

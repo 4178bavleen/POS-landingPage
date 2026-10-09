@@ -257,7 +257,7 @@ export default function FeaturesPage({ darkMode }) {
       : deepFeatures.filter((f) => f.category === selectedCategory)
 
   return (
-    <div className="pt-28 pb-20 relative overflow-hidden">
+    <div className="pt-[calc(var(--header-h)+1.5rem)] pb-12 sm:pb-16 md:pb-20 relative overflow-hidden">
       {/* Background Decorative Ambient */}
       <div className="absolute top-20 right-1/4 w-[600px] h-[600px] bg-[#068aca]/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute top-1/2 left-10 w-[450px] h-[450px] bg-[#84bed9]/15 rounded-full blur-[140px] pointer-events-none" />
@@ -279,7 +279,7 @@ export default function FeaturesPage({ darkMode }) {
         </div>
 
         {/* Hero Header */}
-        <div className="max-w-4xl mx-auto text-center mb-16">
+        <div className="max-w-4xl mx-auto text-center mb-10 sm:mb-12 md:mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full gradient-badge mb-4">
             <Sparkles size={14} className="text-[#068aca]" />
             <span className="text-xs font-semibold tracking-wide text-[#068aca] uppercase">
@@ -340,7 +340,7 @@ export default function FeaturesPage({ darkMode }) {
         </div>
 
         {/* Bento Grid Showcase Section */}
-        <div className="mb-24">
+        <div className="mb-14 sm:mb-16 md:mb-20">
           <Features darkMode={darkMode} />
         </div>
 
@@ -379,7 +379,7 @@ export default function FeaturesPage({ darkMode }) {
         </div>
 
         {/* Feature Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14 sm:mb-16 md:mb-20">
           {filteredFeatures.map((item, idx) => {
             const Icon = item.icon
             return (
@@ -454,7 +454,7 @@ export default function FeaturesPage({ darkMode }) {
         </div>
 
         {/* Feature Comparison: Bhojan Bandhu vs Legacy POS */}
-        <div className="mb-24">
+        <div className="mb-14 sm:mb-16 md:mb-20">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full gradient-badge mb-3">
               <span className="text-xs font-semibold tracking-wide text-[#068aca] uppercase">
@@ -538,7 +538,7 @@ export default function FeaturesPage({ darkMode }) {
 
         {/* Bottom Call to Action */}
         <div
-          className={`p-8 sm:p-14 rounded-3xl border text-center relative overflow-hidden ${
+          className={`p-6 sm:p-9 md:p-12 rounded-3xl border text-center relative overflow-hidden ${
             darkMode
               ? 'bg-gradient-to-b from-dark-surface-raised to-dark-canvas border-dark-border shadow-2xl shadow-black/50'
               : 'bg-gradient-to-b from-slate-50 to-white border-slate-200 shadow-lg'

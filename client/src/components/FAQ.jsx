@@ -77,7 +77,7 @@ export default function FAQ({ darkMode }) {
   const inView = useInView(ref, { once: true, margin: '-60px' })
 
   return (
-    <section id="faq" className="py-24 relative" ref={ref}>
+    <section id="faq" className="py-14 sm:py-16 md:py-20 relative" ref={ref}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
