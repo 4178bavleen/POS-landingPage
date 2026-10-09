@@ -73,7 +73,7 @@ export default function Architecture({ darkMode }) {
                     <div className="p-3 rounded-2xl bg-[#068aca]/15 text-[#068aca]">
                       <Icon size={22} />
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-800/40 dark:bg-white/[0.04] text-slate-400 border border-slate-700/50 dark:border-white/[0.06]">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full  dark:bg-white/[0.04] text-slate-400 border border-slate-700/50 dark:border-white/[0.06]">
                       {node.badge}
                     </span>
                   </div>
