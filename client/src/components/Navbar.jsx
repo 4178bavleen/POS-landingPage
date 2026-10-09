@@ -15,7 +15,6 @@ import {
 } from 'lucide-react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.png'
-import { POS_APP_URL } from '../config/api'
 import { useBranding } from '../context/BrandingContext'
 import OfferBanner from './OfferBanner'
 
@@ -451,13 +450,6 @@ export default function Navbar({ darkMode, setDarkMode }) {
                 </button>
 
                 <div className="pt-3 border-t border-slate-800/60 dark:border-white/[0.08] space-y-2">
-                  <a
-                    href={`${POS_APP_URL}/login`}
-                    onClick={() => setMobileOpen(false)}
-                    className="btn-secondary-glow block w-full text-center text-sm py-2.5 rounded-xl font-semibold"
-                  >
-                    POS Login
-                  </a>
                   <button
                     onClick={() => handleActionClick('#pricing')}
                     className="btn-secondary-glow w-full justify-center text-sm py-2.5 rounded-xl flex items-center gap-2 cursor-pointer"

@@ -27,6 +27,11 @@ const timeSlots = [
   '5:00 PM',
 ]
 
+const getToday = () => {
+  const d = new Date()
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+}
+
 export default function Newsletter({ darkMode }) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -40,11 +45,16 @@ export default function Newsletter({ darkMode }) {
   const [errorMsg, setErrorMsg] = useState('')
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
+  const today = getToday()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!name || !email || !phone || !preferredDate || !preferredTime) {
       setErrorMsg('Please fill in all required fields.')
+      return
+    }
+    if (preferredDate < today) {
+      setErrorMsg('Please select today or a future date.')
       return
     }
     setStatus('loading')
@@ -269,6 +279,7 @@ export default function Newsletter({ darkMode }) {
                       type="date"
                       value={preferredDate}
                       onChange={(e) => setPreferredDate(e.target.value)}
+                      min={today}
                       required
                       className={`${inputClass} pl-10`}
                     />
