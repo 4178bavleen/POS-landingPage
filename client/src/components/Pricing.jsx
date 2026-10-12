@@ -85,6 +85,15 @@ export default function Pricing({ darkMode }) {
       })
   }, [])
 
+  const visiblePlans = plans.filter((p) => Number(p.price) > 0 || plans.length <= 3)
+
+  const gridClasses =
+    visiblePlans.length === 1
+      ? 'grid grid-cols-1 gap-8 items-stretch max-w-md mx-auto'
+      : visiblePlans.length === 2
+      ? 'grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-3xl mx-auto'
+      : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto'
+
   return (
     <section id="pricing" className="py-14 sm:py-16 md:py-20 relative overflow-hidden" ref={ref}>
       {/* Ambient background glow */}
@@ -119,9 +128,8 @@ export default function Pricing({ darkMode }) {
         </div>
 
         {/* Dynamic Plans Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
-          {plans
-            .filter((p) => Number(p.price) > 0 || plans.length <= 3)
+        <div className={gridClasses}>
+          {visiblePlans
             .map((plan, idx) => {
               const isPopular =
                 plan.name?.toLowerCase().includes('pro') ||
