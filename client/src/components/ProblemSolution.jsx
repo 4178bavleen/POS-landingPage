@@ -95,8 +95,8 @@ export default function ProblemSolution({ darkMode }) {
             }`}
           >
             {/* Top Right Tag */}
-            <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#068aca] text-white text-[10px] font-bold tracking-wider uppercase">
-              Speed & Precision
+            <div className="absolute top-4 right-4 max-lg:static max-lg:mb-4 max-lg:ml-auto max-lg:w-fit px-3 py-1 rounded-full bg-[#068aca] text-white text-[10px] font-bold tracking-wider uppercase">
+              Speed &amp; Precision
             </div>
 
             <div className="flex items-center gap-3 mb-6 pb-4 border-b border-emerald-500/10">

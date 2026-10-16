@@ -67,7 +67,7 @@ export default function Testimonials({ darkMode }) {
   const others = testimonials.filter((_, i) => i !== featuredIndex)
 
   return (
-    <section id="testimonials" className="py-14 sm:py-16 md:py-20 border-t border-slate-800/40 dark:border-white/[0.06] relative" ref={ref}>
+    <section id="testimonials" className="py-14 sm:py-16 md:py-20 border-t border-slate-800/40 dark:border-white/[0.06] relative overflow-hidden" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-14">
@@ -98,15 +98,16 @@ export default function Testimonials({ darkMode }) {
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="relative"
+            className="relative min-w-0"
           >
             {/* Ambient Glow */}
             <div className="absolute -inset-4 bg-gradient-to-br from-[#068aca]/10 via-transparent to-transparent rounded-3xl blur-2xl pointer-events-none" aria-hidden="true" />
 
             <div className="relative saas-card p-5 sm:p-8 lg:p-10">
               {/* Quote Icon */}
-              <div className="absolute -top-4 -right-4 w-16 h-16 rounded-2xl bg-gradient-to-br from-[#068aca]/20 to-[#067bba]/10 border border-[#068aca]/20 flex items-center justify-center opacity-50">
-                <Quote size={28} className="text-[#068aca]" />
+              <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-[#068aca]/20 to-[#067bba]/10 border border-[#068aca]/20 flex items-center justify-center opacity-50">
+                <Quote size={22} className="sm:hidden text-[#068aca]" />
+                <Quote size={28} className="hidden sm:block text-[#068aca]" />
               </div>
 
               {/* Stars */}
@@ -122,16 +123,16 @@ export default function Testimonials({ darkMode }) {
               </span>
 
               {/* Review Text */}
-              <blockquote className={`text-lg sm:text-xl leading-relaxed font-medium mb-8 ${darkMode ? 'text-slate-200' : 'text-slate-800'}`}>
+              <blockquote className={`text-base sm:text-xl leading-relaxed font-medium mb-8 ${darkMode ? 'text-slate-200' : 'text-slate-800'}`}>
                 "{featured.review}"
               </blockquote>
 
               {/* Author */}
               <div className="flex items-center gap-4 pt-6 border-t border-slate-800/40 dark:border-white/[0.06]">
-                <div className="w-14 h-14 rounded-full bg-slate-800/60 dark:bg-white/[0.06] flex items-center justify-center text-2xl shrink-0 ring-2 ring-[#068aca]/30">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-slate-800/60 dark:bg-white/[0.06] flex items-center justify-center text-xl sm:text-2xl shrink-0 ring-2 ring-[#068aca]/30">
                   {featured.avatar}
                 </div>
-                <div>
+                <div className="min-w-0">
                   <h4 className={`text-base font-bold tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                     {featured.name}
                   </h4>
@@ -142,8 +143,8 @@ export default function Testimonials({ darkMode }) {
                 </div>
               </div>
 
-              {/* Nav Arrows on Featured Card */}
-              <div className="absolute bottom-6 right-6 flex gap-2">
+              {/* Nav Arrows: inline on mobile, overlay on larger screens */}
+              <div className="flex justify-end gap-2 mt-6 sm:mt-0 sm:absolute sm:bottom-6 sm:right-6">
                 <button
                   onClick={goToPrev}
                   onMouseEnter={() => setAutoPlay(false)}
@@ -167,7 +168,7 @@ export default function Testimonials({ darkMode }) {
           </motion.div>
 
           {/* Stack of Other Testimonials */}
-          <div className="relative">
+          <div className="relative min-w-0">
             <div className="sticky top-24 space-y-3">
               {others.map((t, i) => {
                   const originalIndex = testimonials.indexOf(t)
@@ -182,7 +183,7 @@ export default function Testimonials({ darkMode }) {
                       onClick={() => goToIndex(originalIndex)}
                       onMouseEnter={() => setAutoPlay(false)}
                       onMouseLeave={() => setAutoPlay(true)}
-                      className={`relative saas-card p-5 flex items-center gap-4 group w-full text-left transition-all duration-300 ${
+                      className={`relative saas-card p-4 sm:p-5 flex items-center gap-3 sm:gap-4 group w-full text-left transition-all duration-300 ${
                         isNextInRotation ? 'ring-2 ring-[#068aca]/40' : ''
                       } hover:ring-2 hover:ring-[#068aca]/30 hover:shadow-xl hover:shadow-[#068aca]/10`}
                       aria-label={`Read ${t.name}'s testimonial`}
@@ -209,7 +210,7 @@ export default function Testimonials({ darkMode }) {
                     <p className={`text-xs font-medium text-[#068aca]`}>{t.city}</p>
                   </div>
 
-                  <div className="flex items-center gap-0.5 relative z-10">
+                  <div className="flex items-center gap-0.5 relative z-10 shrink-0">
                     {Array.from({ length: t.rating }).map((_, s) => (
                       <Star key={s} size={12} className="text-amber-400 fill-amber-400" />
                     ))}
