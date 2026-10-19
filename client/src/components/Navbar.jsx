@@ -436,7 +436,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
             <div className="lg:hidden flex items-center gap-2">
               <button
                 onClick={() => setDarkMode(!darkMode)}
-                className={`p-1.5 rounded-lg border ${
+                className={`md:hidden p-1.5 rounded-lg border ${
                   darkMode
                     ? 'border-white/10 text-slate-400'
                     : 'border-slate-200 text-slate-600'
