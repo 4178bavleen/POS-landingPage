@@ -96,6 +96,9 @@ export default function OfferBanner({ onDismiss }) {
                 <span className="bg-white/20 backdrop-blur-xs px-2 py-0.5 rounded-md sm:rounded-lg text-white text-xs sm:text-sm min-w-[34px] sm:min-w-[38px] text-center border border-white/15 shadow-inner">
                   {formatUnit(timeLeft.minutes, 'm')}
                 </span>
+                <span className="bg-white/20 backdrop-blur-xs px-2 py-0.5 rounded-md sm:rounded-lg text-white text-xs sm:text-sm min-w-[34px] sm:min-w-[38px] text-center border border-white/15 shadow-inner">
+                  {formatUnit(timeLeft.seconds, 's')}
+                </span>
               </div>
             </div>
           </div>

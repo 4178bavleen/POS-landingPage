@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import CustomCursor from './components/CustomCursor'
 import CollectChatWidget from './components/CollectChatWidget'
+import WhatsAppWidget from './components/WhatsAppWidget'
 import ScrollProgress from './components/ScrollProgress'
 import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
@@ -44,6 +45,7 @@ function App() {
         <ScrollToTop />
         <ScrollProgress />
         <CollectChatWidget />
+        <WhatsAppWidget />
         <CustomCursor darkMode={darkMode} />
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
 

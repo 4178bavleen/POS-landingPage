@@ -1,111 +1,138 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.png'
 import { useBranding } from '../context/BrandingContext'
-import { FiTwitter, FiInstagram, FiLinkedin, FiYoutube } from 'react-icons/fi'
-import { Mail, Phone, MapPin, Building2, ShieldCheck } from 'lucide-react'
-
-const footerLinks = {
-  Platform: [
-    { label: 'Multi-Tenant POS', to: '/features' },
-    { label: 'Socket.IO KDS', to: '/features' },
-    { label: 'Silent Print Service', to: '/features' },
-    { label: 'Recipe & Inventory', to: '/features' },
-    { label: 'Branch Management', to: '/features' },
-    { label: 'Aggregator Sync', to: '/features' },
-  ],
-  Solutions: [
-    { label: 'Franchise Chains', to: '/#problem-solution' },
-    { label: 'Single Restaurants', to: '/#problem-solution' },
-    { label: 'Dark & Cloud Kitchens', to: '/#problem-solution' },
-    { label: 'QSR Counters', to: '/#problem-solution' },
-    { label: 'Cafes & Bakeries', to: '/#problem-solution' },
-    { label: 'Restro-Bars', to: '/#problem-solution' },
-  ],
-  Architecture: [
-    { label: 'Tenant Isolation', to: '/#architecture' },
-    { label: 'HMAC Webhook Ingestion', to: '/#architecture' },
-    { label: 'PostgreSQL & Prisma', to: '/#architecture' },
-    { label: 'AES-256 Encryption', to: '/#architecture' },
-    { label: 'API Documentation', to: '/#architecture' },
-    { label: 'Security Audit', to: '/#architecture' },
-  ],
-  Company: [
-   
-    { label: 'Bhojan Bandhu Overview', to: '/' },
-    { label: 'Franchise Partner Program', to: '/#newsletter' },
-    { label: 'Support Hotline', to: 'tel:18002008899', isExternal: true },
-    { label: 'Contact Sales', to: '/#newsletter' },
-    { label: 'Terms & SLA', to: '#' },
-  ],
-}
+import { FiInstagram, FiFacebook } from 'react-icons/fi'
+import { Mail, Phone, CalendarCheck } from 'lucide-react'
 
 const socials = [
-  { icon: FiTwitter, label: 'Twitter', href: '#' },
   { icon: FiInstagram, label: 'Instagram', href: '#' },
-  { icon: FiLinkedin, label: 'LinkedIn', href: '#' },
-  { icon: FiYoutube, label: 'YouTube', href: '#' },
+  { icon: FiFacebook, label: 'Facebook', href: '#' },
+]
+
+const footerColumns = [
+  {
+    title: 'Product',
+    links: [
+      { label: 'Features', path: '/features' },
+      { label: 'Pricing', href: '#pricing' },
+      { label: 'FAQ', href: '#faq' },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { label: 'Home', path: '/' },
+      { label: 'Why Bhojan Bandhu', path: '/features' },
+      { label: 'Contact Sales', href: '#newsletter' },
+    ],
+  },
 ]
 
 export default function Footer({ darkMode }) {
   const { logo: brandLogo, brandName } = useBranding()
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const handleLink = (link) => {
+    if (link.path) {
+      if (link.path === '/' && location.pathname === '/') {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      } else {
+        navigate(link.path)
+      }
+      return
+    }
+    if (location.pathname === '/') {
+      const el = document.querySelector(link.href)
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    } else {
+      navigate(`/${link.href}`)
+    }
+  }
+
+  const headingClass = `text-[11px] font-bold uppercase tracking-widest mb-4 ${
+    darkMode ? 'text-slate-300' : 'text-slate-800'
+  }`
+  const linkClass = `text-sm transition-colors hover:text-[#068aca] ${
+    darkMode ? 'text-slate-400' : 'text-slate-600'
+  }`
 
   return (
-    <footer className="border-t border-slate-800/60 dark:border-white/[0.08] pt-16 pb-12 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-12">
-          {/* Brand Info */}
-          <div className="col-span-2">
-            <Link to="/" className="flex items-center gap-3 mb-4 group">
+    <footer className="border-t border-slate-800/60 dark:border-white/[0.08] transition-colors">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
+          {/* Brand & Contact */}
+          <div className="col-span-2 md:col-span-1">
+            <Link to="/" className="flex items-center gap-2.5 mb-4 group w-fit">
               <img
                 src={brandLogo || logo}
                 alt={`${brandName} Logo`}
                 className="h-9 w-9 rounded-full object-contain p-0.5"
               />
-              <div className="flex flex-col">
-                <span className={`text-xl font-bold tracking-tight leading-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
-                  {brandName === 'Bhojan Bandhu' ? (
-                    <>
-                      Bhojan <span className="text-[#068aca]">Bandhu</span>
-                    </>
-                  ) : (
-                    brandName
-                  )}
-                </span>
-            
-              </div>
+              <span className={`text-lg font-bold tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+                {brandName === 'Bhojan Bandhu' ? (
+                  <>
+                    Bhojan <span className="text-[#068aca]">Bandhu</span>
+                  </>
+                ) : (
+                  brandName
+                )}
+              </span>
             </Link>
-
-            <p className={`text-xs sm:text-sm leading-relaxed mb-6 max-w-sm ${
-              darkMode ? 'text-slate-400' : 'text-slate-600'
-            }`}>
-              Enterprise-grade multi-tenant SaaS restaurant POS & management platform. Designed for multi-franchise chains, standalone restaurants, and dark kitchens.
+            <p className={`text-sm leading-relaxed mb-5 ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
+              Restaurant POS built for speed — billing, KDS, inventory & multi-branch control in one platform.
             </p>
-
-            <div className="space-y-2 mb-6 text-xs sm:text-sm">
+            <div className="space-y-2.5 text-sm">
               <a
                 href="mailto:support@bhojanbandhu.in"
-                className={`flex items-center gap-2 hover:text-[#068aca] transition-colors ${
+                className={`flex items-center gap-2.5 hover:text-[#068aca] transition-colors ${
                   darkMode ? 'text-slate-400' : 'text-slate-600'
                 }`}
               >
                 <Mail size={14} className="text-[#068aca]" />
                 <span>support@bhojanbandhu.in</span>
               </a>
-
               <a
-                href="tel:18002008899"
-                className={`flex items-center gap-2 hover:text-[#068aca] transition-colors ${
+                href="tel:+918699524005"
+                className={`flex items-center gap-2.5 hover:text-[#068aca] transition-colors ${
                   darkMode ? 'text-slate-400' : 'text-slate-600'
                 }`}
               >
                 <Phone size={14} className="text-[#068aca]" />
-                <span>1800-200-8899 (Enterprise Support, 24/7)</span>
+                <span>+91 86995 24005</span>
               </a>
-
-              
             </div>
+          </div>
 
-            {/* Social links */}
+          {/* Link Columns */}
+          {footerColumns.map((col) => (
+            <div key={col.title}>
+              <h4 className={headingClass}>{col.title}</h4>
+              <ul className="space-y-3">
+                {col.links.map((link) => (
+                  <li key={link.label}>
+                    <button onClick={() => handleLink(link)} className={`${linkClass} cursor-pointer`}>
+                      {link.label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
+          {/* CTA Column */}
+          <div>
+            <h4 className={headingClass}>Get Started</h4>
+            <p className={`text-sm leading-relaxed mb-4 ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
+              Try Bhojan Bandhu free for 14 days. No credit card required.
+            </p>
+            <button
+              onClick={() => handleLink({ href: '#newsletter' })}
+              className="btn-primary-glow text-xs sm:text-sm font-semibold px-4 py-2 rounded-full flex items-center gap-1.5 w-fit cursor-pointer mb-5"
+            >
+              <CalendarCheck size={14} />
+              <span>Book a Demo</span>
+            </button>
             <div className="flex gap-2">
               {socials.map((s) => {
                 const Icon = s.icon
@@ -126,60 +153,13 @@ export default function Footer({ darkMode }) {
               })}
             </div>
           </div>
-
-          {/* Links Columns */}
-          {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category}>
-              <h4 className={`text-xs font-bold uppercase tracking-wider mb-4 ${
-                darkMode ? 'text-slate-300' : 'text-slate-800'
-              }`}>
-                {category}
-              </h4>
-              <ul className="space-y-2.5">
-                {links.map((link) => (
-                  <li key={link.label}>
-                    {link.isExternal ? (
-                      <a
-                        href={link.to}
-                        className={`text-xs transition-colors hover:text-[#068aca] ${
-                          darkMode ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-slate-900'
-                        }`}
-                      >
-                        {link.label}
-                      </a>
-                    ) : (
-                      <Link
-                        to={link.to}
-                        className={`text-xs transition-colors hover:text-[#068aca] ${
-                          darkMode ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-slate-900'
-                        }`}
-                      >
-                        {link.label}
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-slate-800/40 dark:border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-        
-
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className={darkMode ? 'text-slate-400' : 'text-slate-600'}>
-              Multi-Tenant Cloud Services Operational
-            </span>
-          </div>
-
-          <div className="flex gap-4">
-            <a href="#" className={`hover:text-[#068aca] ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>Privacy Policy</a>
-            <a href="#" className={`hover:text-[#068aca] ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>Terms & SLA</a>
-            <a href="#" className={`hover:text-[#068aca] ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>Security Vault</a>
-          </div>
+        {/* Bottom */}
+        <div className="mt-12 pt-6 border-t border-slate-800/40 dark:border-white/[0.06] text-center">
+          <p className={`text-xs ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>
+            Product of <span className="font-semibold text-[#068aca]">Vibrantick Infotech Solutions</span>
+          </p>
         </div>
       </div>
     </footer>

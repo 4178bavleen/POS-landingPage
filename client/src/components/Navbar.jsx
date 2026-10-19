@@ -12,6 +12,13 @@ import {
   Zap,
   Layers,
   HelpCircle,
+  Receipt,
+  QrCode,
+  BarChart3,
+  Users,
+  UtensilsCrossed,
+  Building2,
+  Truck,
 } from 'lucide-react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.png'
@@ -52,13 +59,27 @@ const whyBhojanBandhuDropdown = [
   },
 ]
 
+const featuresDropdown = [
+  { label: 'Touchscreen Billing', desc: 'Lightning-fast 3-second billing', icon: Receipt },
+  { label: 'Kitchen Display System', desc: 'Real-time Socket.IO order flow', icon: Layers },
+  { label: 'Recipe & Inventory', desc: 'Gram-level ingredient tracking', icon: UtensilsCrossed },
+  { label: 'QR Menu Ordering', desc: 'Contactless customer ordering', icon: QrCode },
+  { label: 'Branch Management', desc: 'Multi-outlet franchise control', icon: Building2 },
+  { label: 'Aggregator Sync', desc: 'Swiggy & Zomato integration', icon: Truck },
+  { label: 'Reports & Analytics', desc: 'Live sales dashboards & Z-Reports', icon: BarChart3 },
+  { label: 'Staff & Roles', desc: 'Granular operator permissions', icon: Users },
+]
+
 export default function Navbar({ darkMode, setDarkMode }) {
   const { logo: brandLogo, brandName } = useBranding()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [featuresOpen, setFeaturesOpen] = useState(false)
   const [mobileWhyOpen, setMobileWhyOpen] = useState(false)
+  const [mobileFeaturesOpen, setMobileFeaturesOpen] = useState(false)
   const dropdownRef = useRef(null)
+  const featuresRef = useRef(null)
   const headerRef = useRef(null)
   const location = useLocation()
   const navigate = useNavigate()
@@ -93,6 +114,9 @@ export default function Navbar({ darkMode, setDarkMode }) {
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setDropdownOpen(false)
+      }
+      if (featuresRef.current && !featuresRef.current.contains(e.target)) {
+        setFeaturesOpen(false)
       }
     }
     document.addEventListener('mousedown', handleClickOutside)
@@ -285,17 +309,85 @@ export default function Navbar({ darkMode, setDarkMode }) {
                 Pricing
               </button>
 
-              {/* Architecture Link */}
-              <button
-                onClick={() => handleNavClick({ label: 'Architecture', href: '#architecture' })}
-                className={`px-3.5 py-1.5 text-xs sm:text-sm font-medium rounded-full transition-all duration-200 cursor-pointer ${
-                  darkMode
-                    ? 'text-slate-300 hover:text-white hover:bg-white/[0.06]'
-                    : 'text-slate-600 hover:text-slate-950 hover:bg-slate-200/60'
-                }`}
+              {/* Features Dropdown Trigger */}
+              <div
+                ref={featuresRef}
+                className="relative"
+                onMouseEnter={() => setFeaturesOpen(true)}
+                onMouseLeave={() => setFeaturesOpen(false)}
               >
-                Architecture
-              </button>
+                <button
+                  onClick={() => setFeaturesOpen(!featuresOpen)}
+                  className={`px-3.5 py-1.5 text-xs sm:text-sm font-medium rounded-full transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
+                    featuresOpen || location.pathname === '/features'
+                      ? 'bg-[#068aca]/15 text-[#068aca] border border-[#068aca]/30 font-semibold shadow-sm'
+                      : darkMode
+                      ? 'text-slate-300 hover:text-white hover:bg-white/[0.06]'
+                      : 'text-slate-600 hover:text-slate-950 hover:bg-slate-200/60'
+                  }`}
+                >
+                  <span>Features</span>
+                  <ChevronDown
+                    size={14}
+                    className={`transition-transform duration-200 ${
+                      featuresOpen ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+
+                {/* Features Dropdown Panel */}
+                <AnimatePresence>
+                  {featuresOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.96 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                      transition={{ duration: 0.18, ease: 'easeOut' }}
+                      className={`absolute top-full left-0 mt-2 w-[26rem] p-2 rounded-2xl border shadow-2xl backdrop-blur-2xl z-50 ${
+                        darkMode
+                          ? 'bg-dark-canvas/95 border-dark-border text-dark-text'
+                          : 'bg-white/95 border-slate-200 text-slate-900'
+                      }`}
+                    >
+                      <div className="grid grid-cols-2 gap-1">
+                        {featuresDropdown.map((item) => {
+                          const IconComp = item.icon
+                          return (
+                            <div
+                              key={item.label}
+                              className={`p-2.5 rounded-xl flex items-start gap-2.5 ${
+                                darkMode ? 'hover:bg-white/[0.07]' : 'hover:bg-slate-100/80'
+                              }`}
+                            >
+                              <div
+                                className={`p-2 rounded-lg shrink-0 ${
+                                  darkMode
+                                    ? 'bg-[#068aca]/15 text-[#068aca]'
+                                    : 'bg-[#068aca]/10 text-[#068aca]'
+                                }`}
+                              >
+                                <IconComp size={16} />
+                              </div>
+                              <div className="min-w-0">
+                                <div className="text-xs sm:text-sm font-semibold leading-tight">
+                                  {item.label}
+                                </div>
+                                <p
+                                  className={`text-[11px] leading-tight mt-0.5 ${
+                                    darkMode ? 'text-slate-400' : 'text-slate-500'
+                                  }`}
+                                >
+                                  {item.desc}
+                                </p>
+                              </div>
+                            </div>
+                          )
+                        })}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
 
               {/* FAQ Link */}
               <button
@@ -445,17 +537,53 @@ export default function Navbar({ darkMode, setDarkMode }) {
                   </AnimatePresence>
                 </div>
 
-                {/* Architecture */}
-                <button
-                  onClick={() => handleNavClick({ label: 'Architecture', href: '#architecture' })}
-                  className={`block w-full text-left px-3 py-2 text-sm font-medium rounded-lg cursor-pointer ${
-                    darkMode
-                      ? 'text-slate-300 hover:text-white hover:bg-white/5'
-                      : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100'
-                  }`}
-                >
-                  Architecture
-                </button>
+                {/* Features Accordion in Mobile Menu */}
+                <div>
+                  <button
+                    onClick={() => setMobileFeaturesOpen(!mobileFeaturesOpen)}
+                    className={`flex items-center justify-between w-full text-left px-3 py-2 text-sm font-medium rounded-lg cursor-pointer ${
+                      location.pathname === '/features'
+                        ? 'bg-[#068aca]/15 text-[#068aca] font-semibold border border-[#068aca]/30'
+                        : darkMode
+                        ? 'text-slate-300 hover:text-white hover:bg-white/5'
+                        : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100'
+                    }`}
+                  >
+                    <span>Features</span>
+                    <ChevronDown
+                      size={15}
+                      className={`transition-transform duration-200 ${
+                        mobileFeaturesOpen ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+
+                  <AnimatePresence>
+                    {mobileFeaturesOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="pl-3 mt-1 space-y-1 overflow-hidden"
+                      >
+                        {featuresDropdown.map((item) => {
+                          const IconComp = item.icon
+                          return (
+                            <div
+                              key={item.label}
+                              className="flex items-center gap-2.5 px-3 py-2 text-xs font-medium"
+                            >
+                              <IconComp size={14} className="text-[#068aca]" />
+                              <span className={darkMode ? 'text-slate-300' : 'text-slate-600'}>
+                                {item.label}
+                              </span>
+                            </div>
+                          )
+                        })}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
 
                 {/* FAQ */}
                 <button
