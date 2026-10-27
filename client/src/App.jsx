@@ -33,7 +33,7 @@ function App() {
     }
   }, [darkMode])
 
-  const bgColor = darkMode ? '#061a2b' : '#f1f6f9'
+  const bgColor = darkMode ? '#061a2b' : '#ffffff'
   const textColor = darkMode ? '#edf6fa' : '#043a68'
 
   return (

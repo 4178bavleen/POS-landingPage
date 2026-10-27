@@ -24,7 +24,7 @@
 }
 
 html {
-  background-color: #f1f6f9;
+  background-color: #ffffff;
   color-scheme: light;
   /* Live-updated by Navbar via ResizeObserver; fallback covers mobile banner wrap */
   --header-h: 148px;
@@ -40,7 +40,7 @@ body {
   padding: 0;
   overflow-x: hidden;
   letter-spacing: -0.01em;
-  background-color: #f1f6f9;
+  background-color: #ffffff;
   color: #043a68;
 }
 
