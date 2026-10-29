@@ -1,5 +1,6 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.png'
+import logoDark from '../assets/logo-dark.png'
 import { useBranding } from '../context/BrandingContext'
 import { FiInstagram, FiFacebook } from 'react-icons/fi'
 import { Mail, Phone, CalendarCheck } from 'lucide-react'
@@ -24,12 +25,15 @@ const footerColumns = [
       { label: 'Home', path: '/' },
       { label: 'Why Bhojan Bandhu', path: '/features' },
       { label: 'Contact Sales', href: '#newsletter' },
+      { label: 'Terms & Conditions', path: '/terms' },
+      { label: 'Privacy Policy', path: '/privacy' },
     ],
   },
 ]
 
 export default function Footer({ darkMode }) {
-  const { logo: brandLogo, brandName } = useBranding()
+  const { logo: brandLogo, logoDark: brandLogoDark, brandName } = useBranding()
+  const activeLogo = darkMode ? (brandLogoDark || logoDark) : (brandLogo || logo)
   const location = useLocation()
   const navigate = useNavigate()
 
@@ -39,6 +43,7 @@ export default function Footer({ darkMode }) {
         window.scrollTo({ top: 0, behavior: 'smooth' })
       } else {
         navigate(link.path)
+        window.scrollTo({ top: 0, behavior: 'smooth' })
       }
       return
     }
@@ -65,7 +70,7 @@ export default function Footer({ darkMode }) {
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center gap-2.5 mb-4 group w-fit">
               <img
-                src={brandLogo || logo}
+                src={activeLogo}
                 alt={`${brandName} Logo`}
                 className="h-9 w-9 rounded-full object-contain p-0.5"
               />
@@ -93,13 +98,13 @@ export default function Footer({ darkMode }) {
                 <span>support@bhojanbandhu.in</span>
               </a>
               <a
-                href="tel:+918699524005"
+                href="tel:+919870443528"
                 className={`flex items-center gap-2.5 hover:text-[#068aca] transition-colors ${
                   darkMode ? 'text-slate-400' : 'text-slate-600'
                 }`}
               >
                 <Phone size={14} className="text-[#068aca]" />
-                <span>+91 86995 24005</span>
+                <span>+91 9870443528</span>
               </a>
             </div>
           </div>
@@ -156,10 +161,29 @@ export default function Footer({ darkMode }) {
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 pt-6 border-t border-slate-800/40 dark:border-white/[0.06] text-center">
-          <p className={`text-xs ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>
-            Product of <span className="font-semibold text-[#068aca]">Vibrantick Infotech Solutions</span>
+        <div className="mt-12 pt-6 border-t border-slate-800/40 dark:border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+          <p className={darkMode ? 'text-slate-500' : 'text-slate-400'}>
+            <span className="font-semibold text-[#068aca]"> Bhojan Bandhu | Product of Vibrantick Infotech Solutions</span>
           </p>
+          <div className="flex items-center gap-4 sm:gap-6 flex-wrap justify-center">
+            <button
+              onClick={() => handleLink({ path: '/terms' })}
+              className={`hover:text-[#068aca] transition-colors cursor-pointer ${
+                darkMode ? 'text-slate-400' : 'text-slate-500'
+              }`}
+            >
+              Terms & Conditions
+            </button>
+            <span className={darkMode ? 'text-slate-700' : 'text-slate-300'}>•</span>
+            <button
+              onClick={() => handleLink({ path: '/privacy' })}
+              className={`hover:text-[#068aca] transition-colors cursor-pointer ${
+                darkMode ? 'text-slate-400' : 'text-slate-500'
+              }`}
+            >
+              Privacy Policy
+            </button>
+          </div>
         </div>
       </div>
     </footer>

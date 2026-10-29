@@ -1,9 +1,11 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 import { API_BASE_URL } from '../config/api'
 import defaultLogo from '../assets/logo.png'
+import defaultLogoDark from '../assets/logo-dark.png'
 
 const BrandingContext = createContext({
   logo: defaultLogo,
+  logoDark: defaultLogoDark,
   brandName: 'Bhojan Bandhu',
   tagline: '',
   faviconUrl: '',
@@ -14,6 +16,7 @@ const BrandingContext = createContext({
 export function BrandingProvider({ children }) {
   const [branding, setBranding] = useState(null)
   const [logo, setLogo] = useState(defaultLogo)
+  const [logoDark, setLogoDark] = useState(defaultLogoDark)
   const [brandName, setBrandName] = useState('Bhojan Bandhu')
   const [tagline, setTagline] = useState('')
   const [faviconUrl, setFaviconUrl] = useState('')
@@ -39,6 +42,11 @@ export function BrandingProvider({ children }) {
           const fetchedLogo = d.logo || d.logoUrl || d.logo_url
           if (fetchedLogo) {
             setLogo(fetchedLogo)
+          }
+
+          const fetchedLogoDark = d.logoDark || d.logo_dark || d.darkLogo || d.dark_logo
+          if (fetchedLogoDark) {
+            setLogoDark(fetchedLogoDark)
           }
 
           const fetchedName = d.brandName || d.brandname || d.restaurantName
@@ -73,6 +81,7 @@ export function BrandingProvider({ children }) {
     <BrandingContext.Provider
       value={{
         logo,
+        logoDark,
         brandName,
         tagline,
         faviconUrl,

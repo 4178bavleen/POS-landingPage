@@ -205,7 +205,7 @@ export default function Newsletter({ darkMode }) {
                     <Phone size={16} className={`absolute left-3.5 top-1/2 -translate-y-1/2 ${darkMode ? 'text-slate-500' : 'text-slate-400'}`} />
                     <input
                       type="tel"
-                      placeholder="+91 86995 24005"
+                      placeholder="+91 9870443528"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       required

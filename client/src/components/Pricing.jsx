@@ -137,7 +137,10 @@ export default function Pricing({ darkMode }) {
                 idx === 1
               const priceNum = Number(plan.price) || 0
               const formattedPrice = priceNum.toLocaleString('en-IN')
-              const cycle = plan.billingCycle?.toLowerCase() === 'annual' ? '/ year' : '/ month'
+              const billingCycleLower = plan.billingCycle?.toLowerCase()?.trim()
+              const isYearly = ['yearly', 'annual', 'annually', 'year'].includes(billingCycleLower)
+              const isQuarterly = ['quarterly', 'quarter'].includes(billingCycleLower)
+              const cycle = isYearly ? '/ year' : isQuarterly ? '/ quarter' : '/ month'
 
               // Resolve features
               const featureList = []
@@ -156,9 +159,18 @@ export default function Pricing({ darkMode }) {
                 )
               }
 
-              if (typeof plan.features === 'object' && plan.features !== null) {
+              if (Array.isArray(plan.features)) {
+                plan.features.forEach((feat) => {
+                  if (typeof feat === 'string' && feat.trim()) featureList.push(feat.trim())
+                })
+              } else if (typeof plan.features === 'object' && plan.features !== null) {
+                if (Array.isArray(plan.features.features)) {
+                  plan.features.features.forEach((feat) => {
+                    if (typeof feat === 'string' && feat.trim()) featureList.push(feat.trim())
+                  })
+                }
                 Object.entries(plan.features).forEach(([k, val]) => {
-                  if (val && FEATURE_LABELS[k]) {
+                  if (k !== 'features' && val && FEATURE_LABELS[k]) {
                     featureList.push(FEATURE_LABELS[k])
                   }
                 })
@@ -232,6 +244,11 @@ export default function Pricing({ darkMode }) {
                         >
                           {cycle}
                         </span>
+                        {isYearly && (
+                          <span className="ml-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#068aca]/15 text-[#068aca] uppercase tracking-wider">
+                            Yearly
+                          </span>
+                        )}
                       </div>
                       <p className="text-[11px] text-emerald-500 font-medium mt-1">
                         ✓ Zero setup fees · 14-day free trial

@@ -9,6 +9,8 @@ import ScrollProgress from './components/ScrollProgress'
 import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import FeaturesPage from './pages/FeaturesPage'
+import TermsAndConditionsPage from './pages/TermsAndConditionsPage'
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import { POS_APP_URL } from './config/api'
 import { BrandingProvider } from './context/BrandingContext'
 
@@ -30,6 +32,10 @@ function App() {
     } else {
       root.classList.remove('dark')
       root.style.colorScheme = 'light'
+    }
+    const faviconLink = document.querySelector("link[rel~='icon']")
+    if (faviconLink && (!faviconLink.dataset.custom || faviconLink.dataset.custom === 'false')) {
+      faviconLink.href = darkMode ? '/logo-dark.png' : '/logo.png'
     }
   }, [darkMode])
 
@@ -53,6 +59,10 @@ function App() {
           <Route path="/" element={<Home darkMode={darkMode} />} />
           <Route path="/features" element={<FeaturesPage darkMode={darkMode} />} />
           <Route path="/why-bhojan-bandhu" element={<FeaturesPage darkMode={darkMode} />} />
+          <Route path="/terms" element={<TermsAndConditionsPage darkMode={darkMode} />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditionsPage darkMode={darkMode} />} />
+          <Route path="/privacy" element={<PrivacyPolicyPage darkMode={darkMode} />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage darkMode={darkMode} />} />
           <Route path="/login" element={<POSLoginRedirect />} />
           <Route path="/register" element={<Navigate to="/#newsletter" replace />} />
           <Route path="/book-a-demo" element={<Navigate to="/#newsletter" replace />} />

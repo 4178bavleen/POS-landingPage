@@ -22,6 +22,7 @@ import {
 } from 'lucide-react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.png'
+import logoDark from '../assets/logo-dark.png'
 import { useBranding } from '../context/BrandingContext'
 import OfferBanner from './OfferBanner'
 
@@ -71,7 +72,8 @@ const featuresDropdown = [
 ]
 
 export default function Navbar({ darkMode, setDarkMode }) {
-  const { logo: brandLogo, brandName } = useBranding()
+  const { logo: brandLogo, logoDark: brandLogoDark, brandName } = useBranding()
+  const activeLogo = darkMode ? (brandLogoDark || logoDark) : (brandLogo || logo)
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
@@ -189,7 +191,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
               <div className="relative flex items-center">
                 <div className="absolute -inset-1 bg-[#068aca]/30 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
                 <img
-                  src={brandLogo || logo}
+                  src={activeLogo}
                   alt={brandName}
                   className="relative h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 />

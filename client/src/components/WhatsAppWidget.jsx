@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
-const DEFAULT_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER || '918699524005'
+const DEFAULT_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER || '9870443528'
 const MESSAGE =
   import.meta.env.VITE_WHATSAPP_MESSAGE ||
   "Hi! I'm interested in Bhojan Bandhu POS. Please share more details."
