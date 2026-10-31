@@ -92,19 +92,19 @@ export default function BusinessPulse({ darkMode }) {
             <div className={`relative rounded-2xl p-2 sm:p-3 border shadow-2xl backdrop-blur-xl ${
               darkMode
                 ? 'bg-dark-surface/90 border-dark-border shadow-black/60'
-                : 'bg-white/90 border-slate-200 shadow-slate-300/70'
+                : 'bg-slate-800 border-slate-700 shadow-slate-900/20'
             }`}>
               {/* Window Controls Bar */}
-              <div className="flex items-center justify-between px-2.5 pb-2 mb-1 border-b border-slate-800/40 dark:border-white/[0.06]">
+              <div className="flex items-center justify-between px-2.5 pb-2 mb-1 border-b border-slate-700 dark:border-white/[0.06]">
                 <div className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#043a68]/80" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#84bed9]/80" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#0996d4]/80" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#068aca]" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#84bed9]" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#0996d4]" />
                 </div>
-                <span className="text-[10px] font-mono text-slate-400">
+                <span className="text-[10px] font-mono text-slate-300">
                   BhojanBandhu-cloud-dashboard.com
                 </span>
-                <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-500">
+                <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-400">
                   LIVE
                 </span>
               </div>
@@ -113,7 +113,7 @@ export default function BusinessPulse({ darkMode }) {
               <motion.img
                 src={dashboardMockup}
                 alt="BhojanBandhu Multi-Branch SaaS Management Dashboard"
-                className="w-full h-auto rounded-xl object-contain border border-slate-800/30 dark:border-white/[0.04]"
+                className="w-full h-auto rounded-xl object-contain border border-slate-700/50 dark:border-white/[0.04]"
                 whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.3 }}
               />
