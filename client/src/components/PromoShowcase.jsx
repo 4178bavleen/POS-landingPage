@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useInView, useReducedMotion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import { CheckCircle2, Flame } from 'lucide-react'
 
 const promoHighlights = [
@@ -12,23 +12,22 @@ const promoHighlights = [
 export default function PromoShowcase({ darkMode }) {
   const containerRef = useRef(null)
   const inView = useInView(containerRef, { once: true, margin: '-60px' })
-  const shouldReduceMotion = useReducedMotion()
 
   return (
     <section
       id="interactive-demo"
-      className="py-14 sm:py-16 md:py-20 relative overflow-hidden border-t border-slate-800/40 dark:border-white/[0.06]"
+      className="py-10 sm:py-12 md:py-16 relative overflow-hidden border-t border-slate-800/40 dark:border-white/[0.06]"
       ref={containerRef}
       aria-label="Bhojan Bandhu POS Interactive Demo Section"
     >
       {/* Ambient background glows tailored to Bhojan Bandhu blue identity */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[850px] h-[450px] sm:h-[600px] bg-[#068aca]/15 blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[950px] lg:w-[1300px] 2xl:w-[1550px] h-[450px] sm:h-[650px] bg-[#068aca]/15 blur-[140px] rounded-full pointer-events-none" />
       <div className="absolute inset-0 bg-grid-pattern pointer-events-none opacity-30" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl xl:max-w-[1536px] 2xl:max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 md:mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 md:mb-10">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -70,29 +69,15 @@ export default function PromoShowcase({ darkMode }) {
           initial={{ opacity: 0, y: 35 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="relative max-w-5xl mx-auto w-full flex flex-col items-center"
+          className="relative max-w-[950px] xl:max-w-[1220px] 2xl:max-w-[1350px] mx-auto w-full flex flex-col items-center"
         >
-          {/* Subtle Floating Animation Wrapper */}
-          <motion.div
-            animate={
-              shouldReduceMotion
-                ? {}
-                : {
-                    y: [0, -8, 0],
-                  }
-            }
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-            className="relative w-full aspect-[1672/941] select-none flex items-center justify-center filter drop-shadow-[0_25px_50px_rgba(0,0,0,0.85)]"
-          >
+          {/* Laptop Mockup Wrapper (Floating effect removed, height reduced by 20px) */}
+          <div className="relative w-full aspect-[1672/905] select-none flex items-center justify-center filter drop-shadow-[0_25px_50px_rgba(0,0,0,0.85)]">
             {/* 1. Realistic Laptop Frame PNG with transparent screen cutout */}
             <img
               src="/laptop-mockup.png"
               alt="Bhojan Bandhu POS on Laptop Device"
-              className="absolute inset-0 w-full h-full object-contain pointer-events-none z-20"
+              className="absolute inset-0 w-full h-full object-fill pointer-events-none z-20"
             />
 
             {/* 2. Live POS Video positioned behind the laptop bezel cut-out */}
@@ -112,7 +97,7 @@ export default function PromoShowcase({ darkMode }) {
               }}
             >
               <video
-                src="/bhojanbandhu_pos_animated_promo_1080p.mp4"
+                src="/bhojanbandhuvdo_enhanced_4k.mp4"
                 autoPlay
                 loop
                 muted
@@ -132,13 +117,13 @@ export default function PromoShowcase({ darkMode }) {
                 }}
               />
             </div>
-          </motion.div>
+          </div>
 
           {/* Ambient blue accent underglow tailored to Bhojan Bandhu theme */}
-          <div className="w-[65%] sm:w-[50%] h-4 sm:h-6 bg-[#068aca]/30 blur-2xl -mt-6 rounded-[50%] pointer-events-none" />
+          <div className="w-[80%] sm:w-[70%] max-w-[920px] h-4 sm:h-8 bg-[#068aca]/30 blur-2xl -mt-6 sm:-mt-8 rounded-[50%] pointer-events-none" />
 
           {/* Highlights Below Laptop */}
-          <div className="w-full mt-10 sm:mt-12 pt-4 border-t border-slate-800/40 dark:border-white/[0.06] grid grid-cols-2 md:grid-cols-4 gap-3 text-left">
+          <div className="w-full max-w-5xl mx-auto mt-8 sm:mt-10 pt-4 border-t border-slate-800/40 dark:border-white/[0.06] grid grid-cols-2 md:grid-cols-4 gap-3 text-left">
             {promoHighlights.map((hl) => (
               <div key={hl} className="flex items-center gap-2 text-[11px] sm:text-xs">
                 <CheckCircle2 size={14} className="text-[#068aca] shrink-0" />
